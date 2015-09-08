@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MedlineCitationSet PUBLIC "-//NLM//DTD Medline Citation, 1st January, 2015//EN"
+        "http://www.nlm.nih.gov/databases/dtd/nlmmedlinecitationset_150101.dtd">
+<MedlineCitationSet>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">4537402</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2011</Year>
+            <Month>11</Month>
+            <Day>17</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Personal observations on combined treatment of nucleus pulposus prolapse by means of surgery, early physiotherapy and rehabilitation procedures].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>249-54</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Kepski</LastName>
+                    <ForeName>A</ForeName>
+                    <Initials>A</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Rudnicki</LastName>
+                    <ForeName>S</ForeName>
+                    <Initials>S</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Mika</LastName>
+                    <ForeName>T</ForeName>
+                    <Initials>T</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Orlowski</LastName>
+                    <ForeName>J</ForeName>
+                    <Initials>J</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Spostrzezenia własne dotyczace skojarzonego leczenia wypukliny jadra mizdzystego metoda operacyjna i wczesnym postepowaniem fizykalno-usprawniajacym.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004599">Electric Stimulation Therapy</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005500">Follow-Up Studies</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006760">Hospitalization</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D007405">Intervertebral Disc Displacement</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000534">rehabilitation</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000601">surgery</QualifierName>
+                <QualifierName MajorTopicYN="Y" UI="Q000628">therapy</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D007902">Length of Stay</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008297">Male</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008875">Middle Aged</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D026741">Physical Therapy Modalities</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013997">Time Factors</DescriptorName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">5030055</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>07</Month>
+            <Day>25</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Intracranial aneurysms in children and adolescents].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>255-60</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Woźniak</LastName>
+                    <ForeName>M</ForeName>
+                    <Initials>M</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Dabrowski</LastName>
+                    <ForeName>M</ForeName>
+                    <Initials>M</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Sadowski</LastName>
+                    <ForeName>Z</ForeName>
+                    <Initials>Z</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Tetniaki wewnatrzczaszkowe u dzieci i młodocianych.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000293">Adolescent</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000367">Age Factors</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D001929">Brain Edema</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002343">Carotid Artery, Internal</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000530">radiography</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002533">Cerebral Angiography</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002648">Child</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002675">Child, Preschool</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006408">Hematoma, Subdural</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D007223">Infant</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="Y" UI="D002532">Intracranial Aneurysm</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000601">surgery</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008297">Male</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D012021">Reflex, Abnormal</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013129">Spinal Puncture</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013345">Subarachnoid Hemorrhage</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000530">radiography</QualifierName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">5030056</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>07</Month>
+            <Day>25</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Some dysontogenetic neoplasms within the spinal canal in the material of the Department of Neurosurgery of the Medical Academy in Lódź].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>261-7</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Polis</LastName>
+                    <ForeName>L</ForeName>
+                    <Initials>L</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Jagodziński</LastName>
+                    <ForeName>Z</ForeName>
+                    <Initials>Z</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Alwasiak</LastName>
+                    <ForeName>J</ForeName>
+                    <Initials>J</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Niektóre dyzontogenetyczne nowotwory śródkregosłupowe w materiale kliniki neurochirurgii AM w Lodzi.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000367">Age Factors</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D003884">Dermoid Cyst</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000196">embryology</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000601">surgery</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D007223">Infant</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008297">Male</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013125">Spinal Neoplasms</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000196">embryology</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000601">surgery</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013724">Teratoma</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000196">embryology</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000601">surgery</QualifierName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">4555307</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>07</Month>
+            <Day>25</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Neurological complications in women using oral contraceptives].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>269-73</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Sopek</LastName>
+                    <ForeName>M</ForeName>
+                    <Initials>M</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Slizewski</LastName>
+                    <ForeName>M</ForeName>
+                    <Initials>M</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+                <PublicationType UI="D016454">Review</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Powikłanie neurologiczne u kobiet stosujacych doustne środki antykoncepcyjne.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <ChemicalList>
+            <Chemical>
+                <RegistryNumber>0</RegistryNumber>
+                <NameOfSubstance UI="D003276">Contraceptives, Oral</NameOfSubstance>
+            </Chemical>
+            <Chemical>
+                <RegistryNumber>0</RegistryNumber>
+                <NameOfSubstance UI="D004967">Estrogens</NameOfSubstance>
+            </Chemical>
+        </ChemicalList>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000367">Age Factors</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D001777">Blood Coagulation</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000187">drug effects</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002561">Cerebrovascular Disorders</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D003276">Contraceptives, Oral</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000009">adverse effects</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004967">Estrogens</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000009">adverse effects</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008881">Migraine Disorders</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D009420">Nervous System</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000187">drug effects</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D009422">Nervous System Diseases</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D009902">Optic Neuritis</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D011247">Pregnancy</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D011559">Pseudotumor Cerebri</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D011596">Psychomotor Disorders</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D014653">Vascular Headaches</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+        </MeshHeadingList>
+        <NumberOfReferences>30</NumberOfReferences>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">4555308</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2013</Year>
+            <Month>11</Month>
+            <Day>21</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Advances in the treatment of parkinsonism].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>275-80</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Dowzenko</LastName>
+                    <ForeName>A</ForeName>
+                    <Initials>A</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+                <PublicationType UI="D016454">Review</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Postepy w leczeniu parkinsonizmu.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <ChemicalList>
+            <Chemical>
+                <RegistryNumber>63-84-3</RegistryNumber>
+                <NameOfSubstance UI="D004295">Dihydroxyphenylalanine</NameOfSubstance>
+            </Chemical>
+            <Chemical>
+                <RegistryNumber>BF4C9Z1J53</RegistryNumber>
+                <NameOfSubstance UI="D000547">Amantadine</NameOfSubstance>
+            </Chemical>
+            <Chemical>
+                <RegistryNumber>EC 4.1.1.-</RegistryNumber>
+                <NameOfSubstance UI="D004296">Dopa Decarboxylase</NameOfSubstance>
+            </Chemical>
+        </ChemicalList>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000547">Amantadine</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000627">therapeutic use</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D001921">Brain</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000201">enzymology</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000378">metabolism</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002462">Cell Membrane</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004295">Dihydroxyphenylalanine</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000008">administration &amp; dosage</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000009">adverse effects</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000378">metabolism</QualifierName>
+                <QualifierName MajorTopicYN="Y" UI="Q000627">therapeutic use</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004296">Dopa Decarboxylase</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000378">metabolism</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D009325">Nausea</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D010300">Parkinson Disease</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000188">drug therapy</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000601">surgery</QualifierName>
+                <QualifierName MajorTopicYN="Y" UI="Q000628">therapy</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013238">Stereotaxic Techniques</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013378">Substantia Nigra</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000187">drug effects</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D014839">Vomiting</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000139">chemically induced</QualifierName>
+            </MeshHeading>
+        </MeshHeadingList>
+        <NumberOfReferences>24</NumberOfReferences>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">4260534</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>07</Month>
+            <Day>25</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Familial Huntington's chorea in children].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>281-4</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Zwoździak</LastName>
+                    <ForeName>W</ForeName>
+                    <Initials>W</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Wróblewski</LastName>
+                    <ForeName>T</ForeName>
+                    <Initials>T</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Rodzinnie wystepujaca postać dziecieca plasawicy Huntingtona.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000293">Adolescent</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000367">Age Factors</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002648">Child</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002675">Child, Preschool</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D003937">Diagnosis, Differential</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002549">Diffuse Cerebral Sclerosis of Schilder</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004569">Electroencephalography</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006816">Huntington Disease</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+                <QualifierName MajorTopicYN="Y" UI="Q000235">genetics</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D007361">Intelligence Tests</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008297">Male</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D011596">Psychomotor Disorders</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D012021">Reflex, Abnormal</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">4537403</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>07</Month>
+            <Day>25</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Case of severe psychosensory encephalitis following viral hepatitis].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>285-8</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Kotowicz</LastName>
+                    <ForeName>J</ForeName>
+                    <Initials>J</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Holyst</LastName>
+                    <ForeName>M</ForeName>
+                    <Initials>M</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Przypadek ciezkiego zapalenia mózgu z objawami psychosensorycznymi po wiruosowym zapaleniu watroby.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000792">Angiography</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002343">Carotid Artery, Internal</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000530">radiography</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D014695">Cerebral Ventriculography</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004569">Electroencephalography</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004660">Encephalitis</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000209">etiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006212">Hallucinations</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006506">Hepatitis A</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000150">complications</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D011596">Psychomotor Disorders</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D012920">Social Behavior Disorders</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013129">Spinal Puncture</DescriptorName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">5030057</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>07</Month>
+            <Day>25</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Hemorrhage into an acoustic neurinoma after 10 year's existence of the tumor].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>289-92</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Kasperek</LastName>
+                    <ForeName>S</ForeName>
+                    <Initials>S</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Krwotok do nerwiaka nerwu słuchowego po kilkunastolentnim przebiegu.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D001344">Autopsy</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002543">Cerebral Hemorrhage</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000209">etiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D007427">Intracranial Pressure</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D009442">Neurilemmoma</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000150">complications</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D012021">Reflex, Abnormal</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D013997">Time Factors</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="Y" UI="D000159">Vestibulocochlear Nerve</DescriptorName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">5030058</PMID>
+        <DateCreated>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>1972</Year>
+            <Month>08</Month>
+            <Day>01</Day>
+        </DateCompleted>
+        <DateRevised>
+            <Year>2006</Year>
+            <Month>07</Month>
+            <Day>25</Day>
+        </DateRevised>
+        <Article PubModel="Print">
+            <Journal>
+                <ISSN IssnType="Print">0028-3843</ISSN>
+                <JournalIssue CitedMedium="Print">
+                    <Volume>6</Volume>
+                    <Issue>2</Issue>
+                    <PubDate>
+                        <MedlineDate>1972 Mar-Apr</MedlineDate>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Neurologia i neurochirurgia polska</Title>
+                <ISOAbbreviation>Neurol. Neurochir. Pol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>[Case of livedo racemosa and organic cerebral changes].</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>293-5</MedlinePgn>
+            </Pagination>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Gralewski</LastName>
+                    <ForeName>Z</ForeName>
+                    <Initials>Z</Initials>
+                </Author>
+            </AuthorList>
+            <Language>pol</Language>
+            <PublicationTypeList>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+            </PublicationTypeList>
+            <VernacularTitle>Przypadek zespołu siności groniastej skóry i zmian organicznych mózgu.</VernacularTitle>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>POLAND</Country>
+            <MedlineTA>Neurol Neurochir Pol</MedlineTA>
+            <NlmUniqueID>0101265</NlmUniqueID>
+            <ISSNLinking>0028-3843</ISSNLinking>
+        </MedlineJournalInfo>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D001480">Basal Ganglia Diseases</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D001927">Brain Diseases</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000150">complications</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D003704">Dementia</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000175">diagnosis</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D007031">Hypothalamus</DescriptorName>
+                <QualifierName MajorTopicYN="N" UI="Q000503">physiopathology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008297">Male</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D009461">Neurologic Manifestations</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D010859">Pigmentation Disorders</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000209">etiology</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D012213">Rheumatic Fever</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000150">complications</QualifierName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+</MedlineCitationSet>
