@@ -44,8 +44,19 @@ class MedlineParserSpecs extends Specification {
       s"${cit.pubmeId} title" in {
         cit.title must beEqualTo("Regulation of the oncoprotein Smoothened by small molecules.")
       }
-      s"${cit.pubmeId} abstractTet" in {
+      s"${cit.pubmeId} abstractText" in {
         cit.abstractText must startWith("The Hedgehog pathway is critical")
+      }
+      s"${cit.pubmeId} authors size" in {
+        cit.authors.size must beEqualTo(4)
+      }
+      s"${cit.pubmeId} one author" in {
+        cit.authors.last must beEqualTo(Author(
+          "de Sauvage",
+          "Frederic J",
+          "FJ",
+          List(Affiliation("Department of Molecular Oncology, Genentech Inc., San Francisco, California, USA."))
+        ))
       }
     }
     "22487467 year from ArticleDate" in {

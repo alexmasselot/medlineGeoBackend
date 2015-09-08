@@ -3,16 +3,17 @@ package ch.fram.medlineGeo.crunching.parsers
 import java.io.{BufferedInputStream, FileInputStream}
 import java.util.zip.GZIPInputStream
 
-import ch.fram.medlineGeo.models.{PubmedId, PubDate, Citation}
+import ch.fram.medlineGeo.models._
 
 import scala.xml.factory.XMLLoader
-import scala.xml.{Elem, SAXParser, XML}
+import scala.xml.{Node, Elem, SAXParser, XML}
 
 /**
  * Created by alexandre masselot on 07/09/15.
  */
 object MedlineParser {
-  case class MedlineXMLParsingException(message:String) extends Exception(message)
+
+  case class MedlineXMLParsingException(message: String) extends Exception(message)
 
 
   def toSingleLine(text: String) = {
@@ -55,6 +56,13 @@ object MedlineParser {
     xml.XML.withSAXParser(new DTDLessXMLLoader().parser).load(getInputStream(filename))
   }
 
+  def parseAuthor(node: Node): Author =
+    Author(lastName = node \ "LastName" text,
+      forename = node \ "ForeName" text,
+      initials = node \ "Initials" text,
+      affiliations = (node \ "AffiliationInfo" \\ "Affiliation" map (x => Affiliation(x text)) ).toList
+    )
+
   def parse(filename: String): Seq[Citation] = {
     val doc = getDoc(filename)
     for {
@@ -71,18 +79,20 @@ object MedlineParser {
           (nodeArticle \ "Journal" \ "JournalIssue" \ "PubDate" \ "Year" text),
           (nodeArticle \ "Journal" \ "JournalIssue" \ "PubDate" \ "MedlineDate" text),
           (nodeArticle \ "ArticleDate" \ "Year" text)
-        ).find( _.trim != "" ) match {
-          case Some(reMedlineDate(x))=> x.toInt
-          case Some(x)=> x.toInt
+        ).find(_.trim != "") match {
+          case Some(reMedlineDate(x)) => x.toInt
+          case Some(x) => x.toInt
           case None => throw MedlineXMLParsingException(s"no year for pmid=${pmid}")
         }
+
+      val authors = nodeArticle \ "AuthorList" \\ "Author"  map (parseAuthor)
 
       Citation(
         PubmedId(pmid.toLong),
         pubDate = PubDate(year = year),
         title = title,
         abstractText = abstractText,
-        authors = Nil
+        authors = authors.toList
       )
     }
   }
