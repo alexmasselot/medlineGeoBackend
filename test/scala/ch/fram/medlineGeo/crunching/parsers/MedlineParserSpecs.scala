@@ -38,21 +38,28 @@ class MedlineParserSpecs extends Specification {
       "PubmedId" in {
         cit.pubmeId must beEqualTo(PubmedId(25785427))
       }
-      "date" in {
+      s"${cit.pubmeId} date" in {
         cit.pubDate must beEqualTo(PubDate(year = 2015))
       }
-      "title" in {
+      s"${cit.pubmeId} title" in {
         cit.title must beEqualTo("Regulation of the oncoprotein Smoothened by small molecules.")
       }
-      "abstractTet" in {
+      s"${cit.pubmeId} abstractTet" in {
         cit.abstractText must startWith("The Hedgehog pathway is critical")
       }
     }
-    "no pubDat year" in {
+    "22487467 year from ArticleDate" in {
       val oCit = MedlineParser.parse(fname).find(_.pubmeId == PubmedId(22487467))
       oCit must beSome
       val cit = oCit.get
-      cit.pubDate must beEqual(2011)
+      cit.pubDate must beEqualTo(PubDate(year=2012))
+    }
+
+    "11766691 year parsed from MedlineDate" in {
+      val oCit = MedlineParser.parse(fname).find(_.pubmeId == PubmedId(11766691))
+      oCit must beSome
+      val cit = oCit.get
+      cit.pubDate must beEqualTo(PubDate(year=2000))
     }
   }
 

@@ -5,7 +5,9 @@ package ch.fram.medlineGeo
  */
 package object models {
 
-  case class PubmedId(value: Long) extends AnyVal
+  case class PubmedId(value: Long) extends AnyVal {
+    override def toString = value.toString
+  }
 
   case class Affiliation(value: String) extends AnyVal
 

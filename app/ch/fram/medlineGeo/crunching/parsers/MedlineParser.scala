@@ -12,6 +12,9 @@ import scala.xml.{Elem, SAXParser, XML}
  * Created by alexandre masselot on 07/09/15.
  */
 object MedlineParser {
+  case class MedlineXMLParsingException(message:String) extends Exception(message)
+
+
   def toSingleLine(text: String) = {
     text.replaceAll( """[ \t]*\n[ \t]*""", " ").trim()
   }
@@ -61,17 +64,22 @@ object MedlineParser {
       val nodeArticle = node \ "Article"
       val abstractText = toSingleLine(nodeArticle \ "Abstract" \ "AbstractText" text)
       val title = toSingleLine(nodeArticle \ "ArticleTitle" text)
-      println(pmid)
-      println(nodeArticle \ "Journal" \ "JournalIssue" \ "PubDate" \ "Year" text)
+
+      val reMedlineDate = """.*\b(\d\d\d\d).*""".r
       val year =
         List(
-          (nodeArticle \ "ArticleDate" \ "JournalIssue" \ "PubDate" \ "Year"),
-          (nodeArticle \ "ArticleDate" \ "Year")
-        ).find()
+          (nodeArticle \ "Journal" \ "JournalIssue" \ "PubDate" \ "Year" text),
+          (nodeArticle \ "Journal" \ "JournalIssue" \ "PubDate" \ "MedlineDate" text),
+          (nodeArticle \ "ArticleDate" \ "Year" text)
+        ).find( _.trim != "" ) match {
+          case Some(reMedlineDate(x))=> x.toInt
+          case Some(x)=> x.toInt
+          case None => throw MedlineXMLParsingException(s"no year for pmid=${pmid}")
+        }
 
       Citation(
         PubmedId(pmid.toLong),
-        pubDate = PubDate(year = year.toInt),
+        pubDate = PubDate(year = year),
         title = title,
         abstractText = abstractText,
         authors = Nil
