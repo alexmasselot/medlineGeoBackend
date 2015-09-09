@@ -1,12 +1,16 @@
-Spark + Play activator template
-===============================
+#Medline Geo Backend
 
-This is an [Typesafe Activator](http://typesafe.com/platform/getstarted) template to demonstrate [Apache Spark](http://spark.apache.org) and Play rest services.
 
-The motivation was [Go Reactive Activator Contest: Scala Days Edition](http://typesafe.com/blog/go-reactive-activator-contest-scala-days-edition)
+The goal is to associate medline publication with geographic coordinate (latitude/longitude + country).
+The backend ultimate goal is to serve as REST server for front end application, but it also has to crunch the data at once.
 
-# Run the activator project
+#Crunching the data in
 
-Once you download the activator template, execute `./activator clean run`. and head for urls [http://localhost:9000/count](http://localhost:9000/count), [http://localhost:9000/list](http://localhost:9000/list) or [http://localhost:9000/filter/Scala](http://localhost:9000/filter/Scala)
+##Technology choices
 
-That would make sens having a redme here
+##Authors
+
+##License
+
+
+##Acknowledgments
