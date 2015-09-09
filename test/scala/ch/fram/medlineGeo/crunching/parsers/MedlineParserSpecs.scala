@@ -63,14 +63,14 @@ class MedlineParserSpecs extends Specification {
       val oCit = MedlineParser.parse(fname).find(_.pubmeId == PubmedId(22487467))
       oCit must beSome
       val cit = oCit.get
-      cit.pubDate must beEqualTo(PubDate(year=2012))
+      cit.pubDate must beEqualTo(PubDate(year = 2012))
     }
 
     "11766691 year parsed from MedlineDate" in {
       val oCit = MedlineParser.parse(fname).find(_.pubmeId == PubmedId(11766691))
       oCit must beSome
       val cit = oCit.get
-      cit.pubDate must beEqualTo(PubDate(year=2000))
+      cit.pubDate must beEqualTo(PubDate(year = 2000))
     }
   }
 
