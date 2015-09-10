@@ -5,16 +5,11 @@ package ch.fram.medlineGeo
  */
 package object models {
 
-  case class PubmedId(value: Long) extends AnyVal {
-    override def toString = value.toString
-  }
 
-  case class Affiliation(value: String) extends AnyVal
-
-  case class Author(lastName: String, forename: String, initials: String, affiliations: List[Affiliation])
+  case class Author(lastName: String, forename: String, initials: String, affiliations: List[String])
 
   case class PubDate(year: Int)
 
-  case class Citation(pubmeId: PubmedId, pubDate: PubDate, title: String, abstractText: String, authors: List[Author])
+  case class Citation(pubmedId: Long, pubDate: PubDate, title: String, abstractText: String, authors: List[Author])
 
 }

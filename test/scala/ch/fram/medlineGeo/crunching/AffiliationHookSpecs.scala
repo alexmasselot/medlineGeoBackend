@@ -1,6 +1,5 @@
 package ch.fram.medlineGeo.crunching
 
-import ch.fram.medlineGeo.models.Affiliation
 import org.specs2.mutable.Specification
 
 /**
@@ -59,7 +58,7 @@ class AffiliationHookSpecs extends Specification {
   } yield {
     s"AffiliationHook" should {
       dt._1 in {
-        AffiliationHook(Affiliation(dt._2)) must beEqualTo(dt._3)
+        AffiliationHook(dt._2) must beEqualTo(dt._3)
       }
     }
   }

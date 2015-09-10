@@ -60,7 +60,7 @@ object MedlineParser {
     Author(lastName = node \ "LastName" text,
       forename = node \ "ForeName" text,
       initials = node \ "Initials" text,
-      affiliations = (node \ "AffiliationInfo" \\ "Affiliation" map (x => Affiliation(x text)) ).toList
+      affiliations = (node \ "AffiliationInfo" \\ "Affiliation" map (x => x text) ).toList
     )
 
   def parse(filename: String): Seq[Citation] = {
@@ -88,7 +88,7 @@ object MedlineParser {
       val authors = nodeArticle \ "AuthorList" \\ "Author"  map (parseAuthor)
 
       Citation(
-        PubmedId(pmid.toLong),
+        pmid.toLong,
         pubDate = PubDate(year = year),
         title = title,
         abstractText = abstractText,

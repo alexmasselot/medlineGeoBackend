@@ -36,38 +36,38 @@ class MedlineParserSpecs extends Specification {
     "check one" should {
       def cit = MedlineParser.parse(fname)(2)
       "PubmedId" in {
-        cit.pubmeId must beEqualTo(PubmedId(25785427))
+        cit.pubmedId must beEqualTo(25785427L)
       }
-      s"${cit.pubmeId} date" in {
+      s"${cit.pubmedId} date" in {
         cit.pubDate must beEqualTo(PubDate(year = 2015))
       }
-      s"${cit.pubmeId} title" in {
+      s"${cit.pubmedId} title" in {
         cit.title must beEqualTo("Regulation of the oncoprotein Smoothened by small molecules.")
       }
-      s"${cit.pubmeId} abstractText" in {
+      s"${cit.pubmedId} abstractText" in {
         cit.abstractText must startWith("The Hedgehog pathway is critical")
       }
-      s"${cit.pubmeId} authors size" in {
+      s"${cit.pubmedId} authors size" in {
         cit.authors.size must beEqualTo(4)
       }
-      s"${cit.pubmeId} one author" in {
+      s"${cit.pubmedId} one author" in {
         cit.authors.last must beEqualTo(Author(
           "de Sauvage",
           "Frederic J",
           "FJ",
-          List(Affiliation("Department of Molecular Oncology, Genentech Inc., San Francisco, California, USA."))
+          List("Department of Molecular Oncology, Genentech Inc., San Francisco, California, USA.")
         ))
       }
     }
     "22487467 year from ArticleDate" in {
-      val oCit = MedlineParser.parse(fname).find(_.pubmeId == PubmedId(22487467))
+      val oCit = MedlineParser.parse(fname).find(_.pubmedId == 22487467L)
       oCit must beSome
       val cit = oCit.get
       cit.pubDate must beEqualTo(PubDate(year = 2012))
     }
 
     "11766691 year parsed from MedlineDate" in {
-      val oCit = MedlineParser.parse(fname).find(_.pubmeId == PubmedId(11766691))
+      val oCit = MedlineParser.parse(fname).find(_.pubmedId == 11766691L)
       oCit must beSome
       val cit = oCit.get
       cit.pubDate must beEqualTo(PubDate(year = 2000))

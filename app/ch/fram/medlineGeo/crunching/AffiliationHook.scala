@@ -1,6 +1,5 @@
 package ch.fram.medlineGeo.crunching
 
-import ch.fram.medlineGeo.models.Affiliation
 
 /**
  * Created by Alexandre Masselot on 08/09/15.
@@ -31,5 +30,10 @@ object AffiliationHook {
       removeTrailDot _ andThen
       removeEmail _
 
-  def apply(affiliation: Affiliation): String = composeAll(affiliation.value)
+  /**
+   * extract the affiliation hook, by applying all th previous rules
+   * @param affiliation
+   * @return
+   */
+  def apply(affiliation: String): String = composeAll(affiliation)
 }
