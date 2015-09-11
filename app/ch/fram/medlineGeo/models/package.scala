@@ -14,6 +14,4 @@ package object models {
 
   case class GeoCoordinates(lat: Double, lng: Double)
 
-  case class LocalizedAffiliationPubmedIds(affiliationHook: String, pubmedIds: List[Long], coordinates: Option[GeoCoordinates]=None, locResolverSolution: Option[String]=None, locResolverTried: List[String]=Nil)
-
 }

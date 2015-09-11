@@ -1,7 +1,6 @@
 package ch.fram.medlineGeo.crunching.tools
 
-import ch.fram.medlineGeo.crunching.AffiliationHook
-import ch.fram.medlineGeo.models.LocalizedAffiliationPubmedIds
+import ch.fram.medlineGeo.crunching.{LocalizedAffiliationPubmedIds, AffiliationHook}
 import org.apache.spark.SparkContext
 import org.apache.spark.sql._
 import play.api.Logger
