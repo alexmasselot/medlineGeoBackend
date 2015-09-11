@@ -12,4 +12,8 @@ package object models {
 
   case class Citation(pubmedId: Long, pubDate: PubDate, title: String, abstractText: String, authors: List[Author])
 
+  case class GeoCoordinates(lat: Double, lng: Double)
+
+  case class LocalizedAffiliationPubmedIds(affiliationHook: String, pubmedIds: List[Long], coordinates: Option[GeoCoordinates]=None, locResolverSolution: Option[String]=None, locResolverTried: List[String]=Nil)
+
 }
