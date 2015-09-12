@@ -6,3 +6,4 @@ jdk:
 notifications:
   email:
     - alexandre.masselot@gmail.com
+sudo: false
