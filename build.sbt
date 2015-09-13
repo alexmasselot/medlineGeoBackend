@@ -24,6 +24,8 @@ dependencyOverrides ++= Set(
   "com.fasterxml.jackson.core" % "jackson-databind" % "2.4.4"
 )
 
+javaOptions in Test += "-Dconfig.file=conf/application.test.conf"
+
 releaseSettings
 
 scalariformSettings
