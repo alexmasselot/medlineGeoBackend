@@ -1,6 +1,6 @@
 package ch.fram.medlineGeo.crunching
 
-import ch.fram.medlineGeo.models.GeoCoordinates
+import ch.fram.medlineGeo.models._
 
 /**
  * Created by Alexandre Massselot on 11/09/15.
@@ -8,7 +8,7 @@ import ch.fram.medlineGeo.models.GeoCoordinates
 case class LocalizedAffiliationPubmedIds(affiliationHook: String,
                                          pubmedIds: List[Long],
                                          citationCount: Int,
-                                         coordinates: Option[GeoCoordinates],
+                                         location: Option[Location],
                                          locResolverSolution: Option[String],
                                          locResolverTried: List[String]) {
 

@@ -5,7 +5,6 @@ package ch.fram.medlineGeo
  */
 package object models {
 
-
   case class Author(lastName: String, forename: String, initials: String, affiliations: List[String])
 
   case class PubDate(year: Int)
@@ -13,5 +12,7 @@ package object models {
   case class Citation(pubmedId: Long, pubDate: PubDate, title: String, abstractText: String, authors: List[Author])
 
   case class GeoCoordinates(lat: Double, lng: Double)
+
+  case class Location(coordinates: GeoCoordinates, countryIso:String)
 
 }
