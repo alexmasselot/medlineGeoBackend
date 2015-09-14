@@ -13,6 +13,8 @@ lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 scalaSource in Compile <<= baseDirectory / "src/scala"
 
+resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
+
 libraryDependencies ++= Dependencies.sparkAkkaHadoop
 
 libraryDependencies ++= Seq(
