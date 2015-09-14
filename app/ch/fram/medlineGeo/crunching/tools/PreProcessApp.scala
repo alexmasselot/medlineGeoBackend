@@ -1,5 +1,6 @@
 package ch.fram.medlineGeo.crunching.tools
 
+import ch.fram.medlineGeo.crunching.SparkUtils
 import com.typesafe.config.ConfigFactory
 
 /**
@@ -14,10 +15,7 @@ trait PreProcessApp extends App {
   val parquetCitations = s"$sparkDataDir/citations.parquet"
   val parquetAffiliationPubmedIds = s"$sparkDataDir/affiliation-pubmedids.parquet"
 
-  val conf = new SparkConf(false)
-    .setMaster("local[*]") // run locally with enough threads
-    .setAppName("just a worksheet") // name in Spark web UI
-    .set("spark.logConf", "true")
+  val conf = SparkUtils.defaultConf
 
 
 
