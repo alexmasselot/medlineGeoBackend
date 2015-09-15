@@ -8,10 +8,10 @@ import org.specs2.mutable.Specification
  */
 class GeonameCountriesSpecs extends Specification {
   "GeoNameCountries" should {
-    def cx = GeonameCountries.load
+    def cx = GeonameCountryLoader.load
 
     "get config" in {
-      GeonameCountries.srcFile must beEqualTo("test/resources/countryInfo-samples.txt")
+      GeonameCountryLoader.srcFile must beEqualTo("test/resources/countryInfo-samples.txt")
     }
 
     "count" in {
@@ -22,7 +22,7 @@ class GeonameCountriesSpecs extends Specification {
       val ogc = cx.findById(933860)
       ogc must beSome
 
-      ogc.get must beEqualTo(GeonameCountry(933860, "BW", "Botswana"))
+      ogc.get must beEqualTo(GeonamesCountry(933860, "BW", "Botswana"))
     }
 
     "findById, none" in {
@@ -30,15 +30,8 @@ class GeonameCountriesSpecs extends Specification {
       ogc must beNone
     }
 
-    "findById, present" in {
-      val ogc = cx.findById(933860)
-      ogc must beSome
-
-      ogc.get must beEqualTo(GeonameCountry(933860, "BW", "Botswana"))
-    }
-
     "findByName, present" in {
-      cx.findByName("Botswana") must beEqualTo(List(GeonameCountry(933860, "BW", "Botswana")))
+      cx.findByName("Botswana") must beEqualTo(List(GeonamesCountry(933860, "BW", "Botswana")))
     }
 
     "findByName, not present" in {
@@ -46,7 +39,7 @@ class GeonameCountriesSpecs extends Specification {
     }
 
     "findByAlternateName" in {
-      cx.findByAlternateName("Islamic Republic of Afghanistan") must beEqualTo(List(GeonameCountry(1149361, "AF", "Afghanistan")))
+      cx.findByAlternateName("Islamic Republic of Afghanistan") must beEqualTo(List(GeonamesCountry(1149361, "AF", "Afghanistan")))
     }
 
   }
