@@ -37,15 +37,13 @@ object GeonamesLocationResolver extends LocationResolver {
   }
 
   object oneResolverDirect extends GeonamesLocationSingleResolver {
-    override def resolveOne(potentialCityCountry: PotentialCityCountry): Try[Location] =
-    {
+    override def resolveOne(potentialCityCountry: PotentialCityCountry): Try[Location] = {
       val potentials = for {
         ct <- cities.findByName(potentialCityCountry.city)
         cn <- countries.findByName(potentialCityCountry.country)
         if ct.location.countryIso == cn.iso
-      } yield {
-          ct
-        }
+      } yield ct
+
       resolveList(potentials.distinct)
     }
   }
@@ -97,7 +95,6 @@ object GeonamesLocationResolver extends LocationResolver {
       oneResolverAlternate,
       oneResolverCityOnly
     )
-
 
   override def resolve(affiliationHook: String): Try[Location] = {
     @tailrec

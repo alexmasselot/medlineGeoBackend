@@ -32,11 +32,14 @@ class GeonameCitiesSpecs extends Specification {
     }
 
     "findByName, present" in {
-      cx.findByName("Tripoli").map(_.location.countryIso).sorted must beEqualTo(List("LB", "LY"))
+      cx.findByName("Tripoli").map(_.location.countryIso).sorted must beEqualTo(List("GR", "LB", "LY"))
     }
 
     "findByName, miss case, present" in {
-      cx.findByName("tripoli").map(_.location.countryIso).sorted must beEqualTo(List("LB", "LY"))
+      cx.findByName("tripoli").map(_.location.countryIso).sorted must beEqualTo(List("GR", "LB", "LY"))
+    }
+    "findByName, forget accent, present" in {
+      cx.findByName("trípoli").map(_.location.countryIso).sorted must beEqualTo(List("GR", "LB", "LY"))
     }
     "findByName, not present" in {
       cx.findByName("Atlantis") must beEqualTo(Nil)
