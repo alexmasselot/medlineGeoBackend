@@ -18,26 +18,26 @@ class GeonameDirectory[T <: GeonamesEntity](list: Iterator[T], itAlt: Iterator[(
   /**
    * dictionary name -> List of GeonameCountry
    */
-  val nameRef: Map[String, List[T]] = idRef.values.toList.groupBy(_.name)
+  val nameRef: Map[String, List[T]] = idRef.values.toList.groupBy(_.name.toLowerCase)
   /**
    * dictionary name -> List of GeonameCountry, based on the passed alternate list name/id
    */
   val alternateNameRef: Map[String, List[T]] =
     itAlt.filter({ case (name, id) => idRef.get(id).isDefined })
       .toList
-      .groupBy(_._1)
+      .groupBy(_._1.toLowerCase)
       .map({ case (name, xs) => (name, xs.map(x => idRef(x._2))) })
 
   def size = idRef.size
 
   def findById(geonameId: Long): Option[T] = idRef.get(geonameId)
 
-  def findByName(countryName: String): List[T] = nameRef.get(countryName) match {
+  def findByName(name: String): List[T] = nameRef.get(name.toLowerCase) match {
     case Some(xs) => xs
     case None => Nil
   }
 
-  def findByAlternateName(name: String): List[T] = alternateNameRef.get(name) match {
+  def findByAlternateName(name: String): List[T] = alternateNameRef.get(name.toLowerCase) match {
     case Some(xs) => xs
     case None => Nil
   }

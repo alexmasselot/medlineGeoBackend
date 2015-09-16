@@ -1,6 +1,6 @@
 package scala.ch.fram.medlineGeo.crunching.localize.geonames
 
-import ch.fram.medlineGeo.crunching.localize.geonames.{ GeonamesCity, GeonameCityLoader }
+import ch.fram.medlineGeo.crunching.localize.geonames.{ GeonamesCity, GeonamesCityLoader }
 import ch.fram.medlineGeo.models.{ GeoCoordinates, Location }
 import org.specs2.mutable.Specification
 
@@ -9,10 +9,10 @@ import org.specs2.mutable.Specification
  */
 class GeonameCitiesSpecs extends Specification {
   "GeonameCityLoader" should {
-    def cx = GeonameCityLoader.load
+    def cx = GeonamesCityLoader.load
 
     "get config" in {
-      GeonameCityLoader.srcFile must beEqualTo("test/resources/cities-samples.txt")
+      GeonamesCityLoader.srcFile must beEqualTo("test/resources/cities-samples.txt")
     }
 
     "count" in {
@@ -35,6 +35,9 @@ class GeonameCitiesSpecs extends Specification {
       cx.findByName("Tripoli").map(_.location.countryIso).sorted must beEqualTo(List("LB", "LY"))
     }
 
+    "findByName, miss case, present" in {
+      cx.findByName("tripoli").map(_.location.countryIso).sorted must beEqualTo(List("LB", "LY"))
+    }
     "findByName, not present" in {
       cx.findByName("Atlantis") must beEqualTo(Nil)
     }

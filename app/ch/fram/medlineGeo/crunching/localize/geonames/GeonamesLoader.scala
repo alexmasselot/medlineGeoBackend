@@ -2,7 +2,7 @@ package ch.fram.medlineGeo.crunching.localize.geonames
 
 import java.io.File
 
-import ch.fram.medlineGeo.crunching.localize.geonames.GeonameCountryLoader._
+import ch.fram.medlineGeo.crunching.localize.geonames.GeonamesCountryLoader._
 import ch.fram.medlineGeo.models.{GeoCoordinates, Location}
 import com.github.tototoshi.csv.{CSVReader, DefaultCSVFormat}
 import com.typesafe.config.ConfigFactory
@@ -83,7 +83,7 @@ trait GeonamesLoader[T <: GeonamesEntity] {
 }
 
 
-object GeonameCountryLoader extends GeonamesLoader[GeonamesCountry] {
+object GeonamesCountryLoader extends GeonamesLoader[GeonamesCountry] {
   val srcConfigKey = "countryFile"
 
   override def fromMap(map: Map[String, String]): GeonamesCountry = {
@@ -95,7 +95,7 @@ object GeonameCountryLoader extends GeonamesLoader[GeonamesCountry] {
   }
 }
 
-object GeonameCityLoader extends GeonamesLoader[GeonamesCity] {
+object GeonamesCityLoader extends GeonamesLoader[GeonamesCity] {
   val srcConfigKey = "cityFile"
 
   override val columnNames = Some(List(

@@ -8,10 +8,10 @@ import org.specs2.mutable.Specification
  */
 class GeonameCountriesSpecs extends Specification {
   "GeoNameCountries" should {
-    def cx = GeonameCountryLoader.load
+    def cx = GeonamesCountryLoader.load
 
     "get config" in {
-      GeonameCountryLoader.srcFile must beEqualTo("test/resources/countryInfo-samples.txt")
+      GeonamesCountryLoader.srcFile must beEqualTo("test/resources/countryInfo-samples.txt")
     }
 
     "count" in {
