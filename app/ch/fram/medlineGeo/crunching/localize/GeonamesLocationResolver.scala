@@ -54,9 +54,8 @@ object GeonamesLocationResolver extends LocationResolver {
         ct <- cities.findByName(potentialCityCountry.city) ::: cities.findByAlternateName(potentialCityCountry.city)
         cn <- countries.findByName(potentialCityCountry.country) ::: countries.findByAlternateName(potentialCityCountry.country)
         if ct.location.countryIso == cn.iso
-      } yield {
+      } yield
           ct
-        }
       resolveList(potentials.distinct)
     }
   }
