@@ -15,7 +15,7 @@ import scala.collection.mutable.ArrayBuffer
  */
 object ExtractAffiliationHookAndPubmedId extends PreProcessApp {
   val sc = new SparkContext(sparkConf)
-  val sqlContext = new org.apache.spark.sql.SQLContext(sc)
+  val sqlContext = new SQLContext(sc)
 
   import sqlContext.implicits._
 

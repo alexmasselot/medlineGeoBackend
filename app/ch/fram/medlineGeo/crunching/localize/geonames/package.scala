@@ -15,5 +15,4 @@ package object geonames {
   case class GeonamesCountry(id: Long, iso: String, name: String) extends GeonamesEntity
 
   case class GeonamesCity(id: Long, name: String, location: Location, population: Int) extends GeonamesEntity
-
 }

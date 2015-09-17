@@ -12,12 +12,48 @@ case class LocalizedAffiliationPubmedIds(affiliationHook: String,
                                          locResolverSolution: Option[String],
                                          locResolverTried: Set[String]) {
 
+  /**
+   * builds a new LocalizedAffiliationPubmedIds, setting a given location + resolver name
+   * @param newLocation
+   * @param resolver
+   * @return
+   */
+  def resolveSuccess(newLocation: Location, resolver: String): LocalizedAffiliationPubmedIds =
+    new LocalizedAffiliationPubmedIds(
+      affiliationHook,
+      pubmedIds,
+      citationCount,
+      Some(newLocation),
+      Some(resolver),
+      locResolverTried
+    )
+
+  /**
+   * builds a new LocalizedAffiliationPubmedIds, just add the resolver name to the set of tried resolvers
+   * @param resolver
+   * @return
+   */
+  def resolveFailure(resolver: String): LocalizedAffiliationPubmedIds =
+    new LocalizedAffiliationPubmedIds(
+      affiliationHook,
+      pubmedIds,
+      citationCount,
+      location,
+      Some(resolver),
+      locResolverTried+resolver
+    )
 }
 
 
 object LocalizedAffiliationPubmedIds {
+  /**
+   * create a default LocalizedAffiliationPubmedIds.
+   * @param affiliationHook
+   * @param pubmedIds
+   * @return
+   */
   def apply(affiliationHook: String,
-            pubmedIds: List[Long]):LocalizedAffiliationPubmedIds =
+            pubmedIds: List[Long]): LocalizedAffiliationPubmedIds =
     LocalizedAffiliationPubmedIds(
       affiliationHook,
       pubmedIds,

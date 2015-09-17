@@ -1,6 +1,6 @@
 package ch.fram.medlineGeo.crunching.localize
 
-import ch.fram.medlineGeo.crunching.localize.geonames.{GeonamesCountryLoader, GeonamesCityLoader, GeonamesCity}
+import ch.fram.medlineGeo.crunching.localize.geonames.{GeonameDirectory, GeonamesCountryLoader, GeonamesCityLoader, GeonamesCity}
 import ch.fram.medlineGeo.models.Location
 
 import scala.annotation.tailrec
@@ -10,13 +10,13 @@ import scala.util.{Success, Failure, Try}
  * Created by Alexandre Masselot on 15/09/15.
  */
 
-case class GeonamesResolutionAmbivalentException(message: String) extends Exception(message)
+case class GeonamesResolutionConflictException(message: String) extends Exception(message)
 
 object GeonamesResolutionNotfoundException extends Exception()
 
 
 object GeonamesLocationResolver extends LocationResolver {
-  val cities = GeonamesCityLoader.load
+  val cities:GeonameDirectory[GeonamesCity] = GeonamesCityLoader.load
   val countries = GeonamesCountryLoader.load
 
   val populationDisambiguationFactor = 10.0
@@ -29,13 +29,16 @@ object GeonamesLocationResolver extends LocationResolver {
       if (sortedCities.head.population >= populationDisambiguationFactor * sortedCities(1).population)
         Success(sortedCities.head.location)
       else
-        Failure(GeonamesResolutionAmbivalentException(s"${sortedCities.head} / ${sortedCities(1)}"))
+        Failure(GeonamesResolutionConflictException(s"${sortedCities.head} / ${sortedCities(1)}"))
   }
 
   trait GeonamesLocationSingleResolver {
     def resolveOne(potentialCityCountry: PotentialCityCountry): Try[Location]
   }
 
+  /**
+   * city & country are found and are coherent (the city name matches the country)
+   */
   object oneResolverDirect extends GeonamesLocationSingleResolver {
     override def resolveOne(potentialCityCountry: PotentialCityCountry): Try[Location] = {
       val potentials = for {
@@ -48,6 +51,9 @@ object GeonamesLocationResolver extends LocationResolver {
     }
   }
 
+  /**
+   * try all possibilites of combination with alternate names and keep the country coherent pairs
+   */
   object oneResolverAlternate extends GeonamesLocationSingleResolver {
     override def resolveOne(potentialCityCountry: PotentialCityCountry): Try[Location] = {
       val potentials = for {
@@ -60,6 +66,9 @@ object GeonamesLocationResolver extends LocationResolver {
     }
   }
 
+  /**
+   * locate only on city, if the name is unique
+   */
   object oneResolverCityOnly extends GeonamesLocationSingleResolver {
     override def resolveOne(potentialCityCountry: PotentialCityCountry): Try[Location] = {
       val potentials = cities.findByName(potentialCityCountry.city) :::
@@ -69,19 +78,27 @@ object GeonamesLocationResolver extends LocationResolver {
       potentials.distinct match {
         case Nil => Failure(GeonamesResolutionNotfoundException)
         case c :: Nil => Success(c)
-        case c1 :: c2 :: cx => GeonamesResolutionAmbivalentException(s"$c1 / $c2")
+        case c1 :: c2 :: cx => GeonamesResolutionConflictException(s"$c1 / $c2")
       }
       resolveList(potentials.distinct)
     }
   }
 
+  /**
+   * Transforms the affiliationHook into a list of PotentialCityCountry and apply the passed resolver.
+   * If a GeonamesResolutionAmbivalentException is found, stop there
+   *
+   * @param affiliationHook
+   * @param resolver
+   * @return
+   */
   def tryAllOneResolver(affiliationHook: String, resolver: GeonamesLocationSingleResolver): Try[Location] = {
     @tailrec
     def handler(pcs: List[PotentialCityCountry]): Try[Location] = pcs match {
       case Nil => Failure(GeonamesResolutionNotfoundException)
       case x :: xs => resolver.resolveOne(x) match {
         case Success(loc) => Success(loc)
-        case Failure(e: GeonamesResolutionAmbivalentException) => Failure(e)
+        case Failure(e: GeonamesResolutionConflictException) => Failure(e)
         case Failure(_) => handler(xs)
       }
     }
@@ -101,7 +118,7 @@ object GeonamesLocationResolver extends LocationResolver {
       case Nil => Failure(GeonamesResolutionNotfoundException)
       case x :: xs => tryAllOneResolver(affiliationHook, x) match {
         case Success(loc) => Success(loc)
-        case Failure(e: GeonamesResolutionAmbivalentException) => Failure(e)
+        case Failure(e: GeonamesResolutionConflictException) => Failure(e)
         case Failure(_) => handler(xs)
 
       }
