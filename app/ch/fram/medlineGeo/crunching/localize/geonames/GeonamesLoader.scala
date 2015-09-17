@@ -18,10 +18,11 @@ trait GeonamesLoader[T <: GeonamesEntity] {
 
   /**
    * convert a Map[String, String] into one bean. This mean giving actual sense to the column
+   * it can return None is the map is not providing enough data
    * @param map
    * @return
    */
-  def fromMap(map: Map[String, String]): T
+  def fromMap(map: Map[String, String]): Option[T]
 
   /**
    * the tabular column names. If let to None, we assume there are hear in the tsv file
@@ -71,11 +72,13 @@ trait GeonamesLoader[T <: GeonamesEntity] {
         .filterNot(_.startsWith("#"))
         .filter(_.trim() != "")
         .map(line => fromMap(names.zip(line.split("\t").toList).toMap))
+        .filter(_.isDefined)
+        .map(_.get)
     }
 
     val itAlternates = Source.fromFile(alternameNamesFile)
       .getLines()
-      .filter(_.trim()!= "")
+      .filter(_.trim() != "")
       .map(_.split("\t").toList)
       .map(_ match {
       case id :: idRef :: ln :: name :: xs => (id.toLong, idRef.toLong, ln, name)
@@ -91,12 +94,15 @@ trait GeonamesLoader[T <: GeonamesEntity] {
 object GeonamesCountryLoader extends GeonamesLoader[GeonamesCountry] {
   val srcConfigKey = "countryFile"
 
-  override def fromMap(map: Map[String, String]): GeonamesCountry = {
-    GeonamesCountry(
-      map("geonameid").toLong,
-      map("ISO"),
-      map("Country")
-    )
+  override def fromMap(map: Map[String, String]): Option[GeonamesCountry] = {
+    if (map("geonameid").trim() == "")
+      None
+    else
+      Some(GeonamesCountry(
+        map("geonameid").toLong,
+        map("ISO"),
+        map("Country")
+      ))
   }
 }
 
@@ -125,13 +131,13 @@ object GeonamesCityLoader extends GeonamesLoader[GeonamesCity] {
     "modification date"))
 
 
-  override def fromMap(map: Map[String, String]): GeonamesCity = {
-    GeonamesCity(
+  override def fromMap(map: Map[String, String]): Option[GeonamesCity] = {
+    Some(GeonamesCity(
       id = map("geonameid").toLong,
       name = map("name"),
       location = Location(GeoCoordinates(map("latitude").toDouble, map("longitude").toDouble), map("country code")),
       population = map("population").toInt
-    )
+    ))
   }
 }
 

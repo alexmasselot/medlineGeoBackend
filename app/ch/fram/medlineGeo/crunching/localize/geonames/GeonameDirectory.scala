@@ -4,7 +4,6 @@ import java.io.File
 
 import ch.fram.medlineGeo.models.{GeoCoordinates, Location}
 import com.typesafe.config.ConfigFactory
-import com.github.tototoshi.csv._
 import org.apache.commons.lang3.StringUtils
 
 
