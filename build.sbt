@@ -19,8 +19,7 @@ libraryDependencies ++= Dependencies.sparkAkkaHadoop
 
 libraryDependencies ++= Seq(
   specs2 % Test,
-  "com.esotericsoftware.kryo" % "kryo" % "2.24.0",
-  "com.github.tototoshi" %% "scala-csv" % "1.2.2"
+  "com.esotericsoftware.kryo" % "kryo" % "2.24.0"
 )
 
 dependencyOverrides ++= Set(

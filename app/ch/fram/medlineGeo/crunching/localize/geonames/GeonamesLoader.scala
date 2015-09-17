@@ -1,10 +1,7 @@
 package ch.fram.medlineGeo.crunching.localize.geonames
 
-import java.io.File
-
-import ch.fram.medlineGeo.crunching.localize.geonames.GeonamesCountryLoader._
 import ch.fram.medlineGeo.models.{GeoCoordinates, Location}
-import com.github.tototoshi.csv.{CSVReader, DefaultCSVFormat}
+import com.github.tototoshi.csv.DefaultCSVFormat
 import com.typesafe.config.ConfigFactory
 
 import scala.io.Source
@@ -80,8 +77,10 @@ trait GeonamesLoader[T <: GeonamesEntity] {
         .map(line => fromMap(names.zip(line.split("\t").toList).toMap))
     }
 
-    val itAlternates = CSVReader.open(new File(alternameNamesFile))
-      .iterator
+    val itAlternates = Source.fromFile(alternameNamesFile)
+      .getLines()
+      .filter(_.trim()!= "")
+      .map(_.split("\t").toList)
       .map(_ match {
       case id :: idRef :: ln :: name :: xs => (id.toLong, idRef.toLong, ln, name)
       case x => throw new IllegalArgumentException(x.toString)
@@ -92,7 +91,6 @@ trait GeonamesLoader[T <: GeonamesEntity] {
     new GeonameDirectory[T](itEntities, itAlternates)
   }
 }
-
 
 object GeonamesCountryLoader extends GeonamesLoader[GeonamesCountry] {
   val srcConfigKey = "countryFile"
