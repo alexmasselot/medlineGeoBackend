@@ -1,7 +1,6 @@
 package ch.fram.medlineGeo.crunching.localize.geonames
 
 import ch.fram.medlineGeo.models.{GeoCoordinates, Location}
-import com.github.tototoshi.csv.DefaultCSVFormat
 import com.typesafe.config.ConfigFactory
 
 import scala.io.Source
@@ -51,9 +50,6 @@ trait GeonamesLoader[T <: GeonamesEntity] {
    * @return
    */
   def load: GeonameDirectory[T] = {
-    implicit object MyFormat extends DefaultCSVFormat {
-      override val delimiter = '\t'
-    }
 
     val itEntities: Iterator[T] = {
       val names = columnNames match {
