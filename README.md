@@ -9,8 +9,18 @@ The backend ultimate goal is to serve as REST server for front end application, 
 
 ##Technology choices
 
+###Development
+
+#### Testing
+For "unit" testing
+
+    sbt test
+    
+Continuous testing under [travis](https://travis-ci.org/alexmasselot/medlineGeoBackend)
+
 ##Authors
 
+Alexandre Masselot
 ##License
 
 

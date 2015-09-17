@@ -10,7 +10,7 @@ case class LocalizedAffiliationPubmedIds(affiliationHook: String,
                                          citationCount: Int,
                                          location: Option[Location],
                                          locResolverSolution: Option[String],
-                                         locResolverTried: List[String]) {
+                                         locResolverTried: Set[String]) {
 
 }
 
@@ -24,6 +24,6 @@ object LocalizedAffiliationPubmedIds {
       pubmedIds.size,
       None,
       None,
-      Nil
+      Set()
     )
 }

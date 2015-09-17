@@ -19,7 +19,7 @@ object MedlineXmlToSparkCitations extends PreProcessApp {
 
   val medlineFiles = new File(medlineFileDir).listFiles.filter(_.getName endsWith ".gz").toList.map(_.getAbsolutePath)
 
-  val sc = new SparkContext(conf)
+  val sc = new SparkContext(sparkConf)
   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
   import sqlContext.implicits._
 

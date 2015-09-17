@@ -14,8 +14,9 @@ trait PreProcessApp extends App {
 
   val parquetCitations = s"$sparkDataDir/citations.parquet"
   val parquetAffiliationPubmedIds = s"$sparkDataDir/affiliation-pubmedids.parquet"
+  val objectsAffiliationPubmedIds = s"$sparkDataDir/affiliation-pubmedids.objects"
 
-  val conf = SparkUtils.defaultConf
+  val sparkConf = SparkUtils.defaultConf
 
 
 
