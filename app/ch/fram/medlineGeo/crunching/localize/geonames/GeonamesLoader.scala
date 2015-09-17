@@ -58,15 +58,26 @@ trait GeonamesLoader[T <: GeonamesEntity] {
       override val delimiter = '\t'
     }
 
-    val itEntities: Iterator[T] = columnNames match {
-      case None =>
-        val reader = CSVReader.open(new File(srcFile))
-        reader.iteratorWithHeaders.map(fromMap)
-      case Some(names) =>
-        Source.fromFile(srcFile)
-          .getLines()
-          .filter(_.trim() != "")
-          .map(line => fromMap(names.zip(line.split("\t").toList).toMap))
+    val itEntities: Iterator[T] = {
+      val names = columnNames match {
+        case None =>
+          val headerLine = Source.fromFile(srcFile)
+            .getLines()
+            .takeWhile(_.startsWith("#"))
+            .toList
+            .last
+            .substring(1)
+
+          headerLine.split("\t").toList
+
+        case Some(sx) => sx
+      }
+
+      Source.fromFile(srcFile)
+        .getLines()
+        .filterNot(_.startsWith("#"))
+        .filter(_.trim() != "")
+        .map(line => fromMap(names.zip(line.split("\t").toList).toMap))
     }
 
     val itAlternates = CSVReader.open(new File(alternameNamesFile))
@@ -89,7 +100,7 @@ object GeonamesCountryLoader extends GeonamesLoader[GeonamesCountry] {
   override def fromMap(map: Map[String, String]): GeonamesCountry = {
     GeonamesCountry(
       map("geonameid").toLong,
-      map("#ISO"),
+      map("ISO"),
       map("Country")
     )
   }
