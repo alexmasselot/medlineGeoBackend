@@ -34,7 +34,9 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   val resolverName: String = "geonames"
   val resolver: LocationResolver = GeonamesLocationResolver
 
-  val rddOut = rdd.map({ lapi =>
+  val rddOut = rdd
+    .sortBy(-_.citationCount)
+    .map({ lapi =>
     lapi.location match {
         //we have a location
       case Some(loc) => lapi

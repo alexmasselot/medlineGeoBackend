@@ -3,7 +3,6 @@ package ch.fram.medlineGeo.crunching.tools
 import java.io.File
 
 import ch.fram.medlineGeo.crunching.SparkUtils
-import ch.fram.medlineGeo.crunching.tools.AffiliationHookAndPubmedIdsLocationResolve._
 import com.typesafe.config.ConfigFactory
 
 /**
