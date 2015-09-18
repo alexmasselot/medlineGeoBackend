@@ -33,7 +33,7 @@ object ExtractAffiliationHookAndPubmedId extends PreProcessApp {
   }).groupByKey().map({
     case (aff: String, ids: Seq[Long]) => LocalizedAffiliationPubmedIds(aff, ids.toList)
   })
-    .saveAsObjectFile(objectsAffiliationPubmedIds)
+    .saveAsObjectFile(objectsAffiliationPubmedIdsInit)
 
 
   Logger.info("DONE")

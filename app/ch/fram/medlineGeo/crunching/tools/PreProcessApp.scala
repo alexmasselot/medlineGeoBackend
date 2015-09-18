@@ -21,29 +21,27 @@ trait PreProcessApp extends App {
   val sparkDataDir = config.getConfig("spark").getString("dataDir")
 
   val parquetCitations = s"$sparkDataDir/citations.parquet"
-  val parquetAffiliationPubmedIds = s"$sparkDataDir/affiliation-pubmedids.parquet"
-  val objectsAffiliationPubmedIds = s"$sparkDataDir/affiliation-pubmedids.objects"
+  val parquetAffiliationPubmedIdsLocated = s"$sparkDataDir/affiliation-pubmedids-located.parquet"
+  val objectsAffiliationPubmedIdsInit = s"$sparkDataDir/affiliation-pubmedids.objects"
 
   val sparkConf = SparkUtils.defaultConf
 
-  val objectCptBaseName = s"""${FilenameUtils.getName(objectsAffiliationPubmedIds)}_"""
+  val objectCptBaseName = s"""${FilenameUtils.getName(objectsAffiliationPubmedIdsInit)}_"""
 
   /**
    * process files are like the objectsAffiliationPubmedIds file with _\d{3} suffix
-   * this function return the last processed file (or the original on if none exist)
+   * this function return the last processed file (or none)
    * @return
    */
-  def latestResolvedAffiliationPubmedIdsObjectsFilename: String = {
-    val dir = new File(objectsAffiliationPubmedIds).getParentFile
+  def latestResolvedAffiliationPubmedIdsObjectsFilename: Option[String] = {
+    val dir = new File(objectsAffiliationPubmedIdsInit).getParentFile
     dir.listFiles
       .filter(f => f.getName.startsWith(objectCptBaseName))
       .toList
       .sortBy(_.getName)
       .reverse
-      .headOption match {
-      case Some(f) => f.getAbsolutePath
-      case None => objectsAffiliationPubmedIds
-    }
+      .headOption
+      .map(_.getAbsolutePath)
   }
 
   /**
@@ -51,12 +49,11 @@ trait PreProcessApp extends App {
    * @return
    */
   def nextResolvedAffiliationPubmedIdsObjectsFilename: String = {
-    val bn = FilenameUtils.getName(latestResolvedAffiliationPubmedIdsObjectsFilename)
-    if (bn.startsWith(objectCptBaseName)) {
-      val i = bn.replace(objectCptBaseName, "").toInt + 1
-      objectsAffiliationPubmedIds + "_" + f"$i%03d"
-    } else {
-      s"${objectsAffiliationPubmedIds}_000"
+    latestResolvedAffiliationPubmedIdsObjectsFilename match {
+      case None => objectsAffiliationPubmedIdsInit + "_000"
+      case Some(bn) =>
+        val i = FilenameUtils.getName(bn).replace(objectCptBaseName, "").toInt + 1
+        objectsAffiliationPubmedIdsInit + "_" + f"$i%03d"
     }
   }
 
