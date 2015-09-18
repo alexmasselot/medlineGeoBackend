@@ -10,7 +10,7 @@ case class LocalizedAffiliationPubmedIds(affiliationHook: String,
                                          citationCount: Int,
                                          location: Option[Location],
                                          locResolverSolution: Option[String],
-                                         locResolverTried: Set[String]) {
+                                         locResolverTried: List[String]) {
 
   /**
    * builds a new LocalizedAffiliationPubmedIds, setting a given location + resolver name
@@ -40,7 +40,7 @@ case class LocalizedAffiliationPubmedIds(affiliationHook: String,
       citationCount,
       location,
       Some(resolver),
-      locResolverTried+resolver
+      (locResolverTried :+ resolver).distinct
     )
 }
 
@@ -60,6 +60,6 @@ object LocalizedAffiliationPubmedIds {
       pubmedIds.size,
       None,
       None,
-      Set()
+      Nil
     )
 }
