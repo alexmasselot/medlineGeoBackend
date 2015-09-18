@@ -80,7 +80,7 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   Logger.info(s"saving $nextFile")
   rddOut.saveAsObjectFile(nextFile)
 
-  val rdd2: RDD[LocalizedAffiliationPubmedIds] = sc.objectFile(currentFile)
+  val rdd2: RDD[LocalizedAffiliationPubmedIds] = sc.objectFile(nextFile)
 
   val sqlContext = new SQLContext(sc)
   import sqlContext.implicits._
