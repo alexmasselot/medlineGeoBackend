@@ -1,17 +1,19 @@
 package ch.fram.medlineGeo.crunching.tools
 
-import java.io.File
+import akka.actor.{Actor, ActorSystem, Props}
+import akka.pattern.ask
+import akka.util.Timeout
 import ch.fram.medlineGeo.crunching.LocalizedAffiliationPubmedIds
-import ch.fram.medlineGeo.crunching.localize.{LocationResolver, GeonamesLocationResolver}
-import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.{SaveMode, SQLContext}
-
-import scala.collection.JavaConversions._
-
+import ch.fram.medlineGeo.crunching.localize.{GeonamesLocationResolver, LocationResolutionSkipException, LocationResolver}
+import ch.fram.medlineGeo.models.Location
 import org.apache.spark.SparkContext
+import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.{SQLContext, SaveMode}
 import play.api.Logger
 
-import scala.util.{Failure, Success}
+import scala.concurrent.duration._
+import scala.util.{Failure, Success, Try}
+import scala.concurrent.ExecutionContext.Implicits.global
 
 /**
  *
@@ -33,6 +35,22 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
 
   val resolverName: String = "geonames"
   val resolver: LocationResolver = GeonamesLocationResolver
+  val resolverMaxCounter:Int = Int.MaxValue
+
+  class LocationResolverActor(resolver:LocationResolver, maxCount:Int) extends Actor{
+    var cpt = 0;
+    override def receive: Receive = {
+      case _ if cpt >= maxCount =>
+        sender ! Failure(LocationResolutionSkipException("reach limit"))
+      case affiliationHook:String =>
+        cpt = cpt+1;
+        sender ! resolver.resolve(affiliationHook)
+    }
+  }
+
+  val system = ActorSystem("medline-geo-resolver")
+  val locationResolverActor = system.actorOf(Props(classOf[LocationResolverActor], resolver, resolverMaxCounter), "location-resolver")
+  implicit val timeout = Timeout(5 seconds)
 
   val rddOut = rdd
     .sortBy(-_.citationCount)
@@ -43,10 +61,13 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
         //we have no location but the resolver has already bee tried
       case None if (lapi.locResolverTried.contains(resolverName)) => lapi
         //we have no location and the resolver has not been tried
-      case _ => resolver.resolve(lapi.affiliationHook) match {
-        case Success(loc) => lapi.resolveSuccess(loc, resolverName)
-        case Failure(e) => lapi.resolveFailure(resolverName)
-      }
+      case _ => (locationResolverActor ? lapi.affiliationHook).onSuccess({ case tryLoc:Try[Location] =>
+         tryLoc match {
+          case Success(loc) => lapi.resolveSuccess(loc, resolverName)
+          case Failure(e:LocationResolutionSkipException) => lapi
+          case Failure(e) => lapi.resolveFailure(resolverName)
+        }
+      })
     }
   })
 

@@ -4,26 +4,29 @@ import java.io.File
 
 import ch.fram.medlineGeo.crunching.SparkUtils
 import com.typesafe.config.ConfigFactory
+import org.apache.commons.io.{FilenameUtils, FileUtils}
+
+import scala.util.matching.Regex
 
 /**
  * Created by alex on 11/09/15.
  */
 trait PreProcessApp extends App {
+
   import org.apache.spark.{SparkConf, SparkContext}
 
   val config = ConfigFactory.defaultApplication()
+  val privateConfig = ConfigFactory.parseFile(new File("conf/private.conf"))
+
   val sparkDataDir = config.getConfig("spark").getString("dataDir")
 
   val parquetCitations = s"$sparkDataDir/citations.parquet"
   val parquetAffiliationPubmedIds = s"$sparkDataDir/affiliation-pubmedids.parquet"
   val objectsAffiliationPubmedIds = s"$sparkDataDir/affiliation-pubmedids.objects"
 
-  
-  
-  
   val sparkConf = SparkUtils.defaultConf
 
-  val reFilename = s"""${new File(objectsAffiliationPubmedIds).getName}_([0-9]{3})""".r
+  val objectCptBaseName = s"""${FilenameUtils.getName(objectsAffiliationPubmedIds)}_"""
 
   /**
    * process files are like the objectsAffiliationPubmedIds file with _\d{3} suffix
@@ -33,7 +36,7 @@ trait PreProcessApp extends App {
   def latestResolvedAffiliationPubmedIdsObjectsFilename: String = {
     val dir = new File(objectsAffiliationPubmedIds).getParentFile
     dir.listFiles
-      .filter(f => reFilename.findFirstIn(f.getName).isDefined)
+      .filter(f => f.getName.startsWith(objectCptBaseName))
       .toList
       .sortBy(_.getName)
       .reverse
@@ -48,9 +51,12 @@ trait PreProcessApp extends App {
    * @return
    */
   def nextResolvedAffiliationPubmedIdsObjectsFilename: String = {
-    latestResolvedAffiliationPubmedIdsObjectsFilename match {
-      case reFilename(n) => s"${objectsAffiliationPubmedIds}_${n + 1}"
-      case _ => s"${objectsAffiliationPubmedIds}_000"
+    val bn = FilenameUtils.getName(latestResolvedAffiliationPubmedIdsObjectsFilename)
+    if (bn.startsWith(objectCptBaseName)) {
+      val i = bn.replace(objectCptBaseName, "").toInt + 1
+      objectsAffiliationPubmedIds + "_" + f"$i%03d"
+    } else {
+      s"${objectsAffiliationPubmedIds}_000"
     }
   }
 

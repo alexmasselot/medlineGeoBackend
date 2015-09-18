@@ -19,3 +19,4 @@ project/plugins/project/
 *.iml
 /tmp
 tmp/
+/conf/private.conf

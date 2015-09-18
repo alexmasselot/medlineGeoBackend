@@ -19,7 +19,8 @@ libraryDependencies ++= Dependencies.sparkAkkaHadoop
 
 libraryDependencies ++= Seq(
   specs2 % Test,
-  "com.esotericsoftware.kryo" % "kryo" % "2.24.0"
+  "com.esotericsoftware.kryo" % "kryo" % "2.24.0",
+  "com.google.maps" % "google-maps-services" % "0.1.7"
 )
 
 dependencyOverrides ++= Set(

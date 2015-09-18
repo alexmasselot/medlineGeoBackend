@@ -11,8 +11,6 @@ package object models {
 
   case class Citation(pubmedId: Long, pubDate: PubDate, title: String, abstractText: String, authors: List[Author])
 
-  case class GeoCoordinates(lat: Double, lng: Double)
-
   case class Location(coordinates: GeoCoordinates, countryIso:String)
 
 }

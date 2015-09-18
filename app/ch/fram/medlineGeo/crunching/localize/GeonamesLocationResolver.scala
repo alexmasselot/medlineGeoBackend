@@ -10,9 +10,6 @@ import scala.util.{Success, Failure, Try}
  * Created by Alexandre Masselot on 15/09/15.
  */
 
-case class GeonamesResolutionConflictException(message: String) extends Exception(message)
-
-object GeonamesResolutionNotfoundException extends Exception()
 
 
 object GeonamesLocationResolver extends LocationResolver {
@@ -22,14 +19,14 @@ object GeonamesLocationResolver extends LocationResolver {
   val populationDisambiguationFactor = 10.0
 
   def resolveList(potentials: List[GeonamesCity]): Try[Location] = potentials match {
-    case Nil => Failure(GeonamesResolutionNotfoundException)
+    case Nil => Failure(LocationResolutionNotfoundException)
     case c :: Nil => Success(c.location)
     case cities =>
       val sortedCities = cities.sortBy(-_.population)
       if (sortedCities.head.population >= populationDisambiguationFactor * sortedCities(1).population)
         Success(sortedCities.head.location)
       else
-        Failure(GeonamesResolutionConflictException(s"${sortedCities.head} / ${sortedCities(1)}"))
+        Failure(LocationResolutionConflictException(s"${sortedCities.head} / ${sortedCities(1)}"))
   }
 
   trait GeonamesLocationSingleResolver {
@@ -76,9 +73,9 @@ object GeonamesLocationResolver extends LocationResolver {
         cities.findByName(potentialCityCountry.country) :::
         cities.findByAlternateName(potentialCityCountry.country)
       potentials.distinct match {
-        case Nil => Failure(GeonamesResolutionNotfoundException)
+        case Nil => Failure(LocationResolutionNotfoundException)
         case c :: Nil => Success(c)
-        case c1 :: c2 :: cx => GeonamesResolutionConflictException(s"$c1 / $c2")
+        case c1 :: c2 :: cx => LocationResolutionConflictException(s"$c1 / $c2")
       }
       resolveList(potentials.distinct)
     }
@@ -95,10 +92,10 @@ object GeonamesLocationResolver extends LocationResolver {
   def tryAllOneResolver(affiliationHook: String, resolver: GeonamesLocationSingleResolver): Try[Location] = {
     @tailrec
     def handler(pcs: List[PotentialCityCountry]): Try[Location] = pcs match {
-      case Nil => Failure(GeonamesResolutionNotfoundException)
+      case Nil => Failure(LocationResolutionNotfoundException)
       case x :: xs => resolver.resolveOne(x) match {
         case Success(loc) => Success(loc)
-        case Failure(e: GeonamesResolutionConflictException) => Failure(e)
+        case Failure(e: LocationResolutionConflictException) => Failure(e)
         case Failure(_) => handler(xs)
       }
     }
@@ -115,10 +112,10 @@ object GeonamesLocationResolver extends LocationResolver {
   override def resolve(affiliationHook: String): Try[Location] = {
     @tailrec
     def handler(resolvers: List[GeonamesLocationSingleResolver]): Try[Location] = resolvers match {
-      case Nil => Failure(GeonamesResolutionNotfoundException)
+      case Nil => Failure(LocationResolutionNotfoundException)
       case x :: xs => tryAllOneResolver(affiliationHook, x) match {
         case Success(loc) => Success(loc)
-        case Failure(e: GeonamesResolutionConflictException) => Failure(e)
+        case Failure(e: LocationResolutionConflictException) => Failure(e)
         case Failure(_) => handler(xs)
 
       }
