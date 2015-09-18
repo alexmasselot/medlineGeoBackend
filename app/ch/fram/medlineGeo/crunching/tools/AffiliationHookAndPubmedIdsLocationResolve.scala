@@ -11,6 +11,7 @@ import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.{SQLContext, SaveMode}
 import play.api.Logger
 
+import scala.concurrent.Await
 import scala.concurrent.duration._
 import scala.util.{Failure, Success, Try}
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -25,7 +26,6 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   val sc = new SparkContext(sparkConf)
 
 
-
   val currentFile = latestResolvedAffiliationPubmedIdsObjectsFilename
   val nextFile = nextResolvedAffiliationPubmedIdsObjectsFilename
 
@@ -35,15 +35,16 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
 
   val resolverName: String = "geonames"
   val resolver: LocationResolver = GeonamesLocationResolver
-  val resolverMaxCounter:Int = Int.MaxValue
+  val resolverMaxCounter: Int = Int.MaxValue
 
-  class LocationResolverActor(resolver:LocationResolver, maxCount:Int) extends Actor{
+  class LocationResolverActor(resolver: LocationResolver, maxCount: Int) extends Actor {
     var cpt = 0;
+
     override def receive: Receive = {
       case _ if cpt >= maxCount =>
         sender ! Failure(LocationResolutionSkipException("reach limit"))
-      case affiliationHook:String =>
-        cpt = cpt+1;
+      case affiliationHook: String =>
+        cpt = cpt + 1;
         sender ! resolver.resolve(affiliationHook)
     }
   }
@@ -56,18 +57,18 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
     .sortBy(-_.citationCount)
     .map({ lapi =>
     lapi.location match {
-        //we have a location
+      //we have a location
       case Some(loc) => lapi
-        //we have no location but the resolver has already bee tried
+      //we have no location but the resolver has already bee tried
       case None if (lapi.locResolverTried.contains(resolverName)) => lapi
-        //we have no location and the resolver has not been tried
-      case _ => (locationResolverActor ? lapi.affiliationHook).onSuccess({ case tryLoc:Try[Location] =>
-         tryLoc match {
+      //we have no location and the resolver has not been tried
+      case _ =>
+        val tryLoc = Await.result(locationResolverActor ? lapi.affiliationHook, 1 second).asInstanceOf[Try[Location]]
+        tryLoc match {
           case Success(loc) => lapi.resolveSuccess(loc, resolverName)
-          case Failure(e:LocationResolutionSkipException) => lapi
+          case Failure(e: LocationResolutionSkipException) => lapi
           case Failure(e) => lapi.resolveFailure(resolverName)
         }
-      })
     }
   })
 
@@ -77,6 +78,7 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   val rdd2: RDD[LocalizedAffiliationPubmedIds] = sc.objectFile(nextFile)
 
   val sqlContext = new SQLContext(sc)
+
   import sqlContext.implicits._
 
   Logger.info(s"reading back and piping to parquet $parquetAffiliationPubmedIds")
