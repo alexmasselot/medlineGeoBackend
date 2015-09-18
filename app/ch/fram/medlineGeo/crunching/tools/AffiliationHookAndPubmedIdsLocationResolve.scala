@@ -22,39 +22,10 @@ import scala.util.{Failure, Success}
 object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   val sc = new SparkContext(sparkConf)
 
-  val reFilename = s"""${new File(objectsAffiliationPubmedIds).getName}_([0-9]{3})""".r
 
-  /**
-   * process files are like the objectsAffiliationPubmedIds file with _\d{3} suffix
-   * this function return the last processed file (or the original on if none exist)
-   * @return
-   */
-  def latestResolvedFilename: String = {
-    val dir = new File(objectsAffiliationPubmedIds).getParentFile
-    dir.listFiles
-      .filter(f => reFilename.findFirstIn(f.getName).isDefined)
-      .toList
-      .sortBy(_.getName)
-      .reverse
-      .headOption match {
-      case Some(f) => f.getAbsolutePath
-      case None => objectsAffiliationPubmedIds
-    }
-  }
 
-  /**
-   * get the next filename, incremental the counter with 3 digit
-   * @return
-   */
-  def nextResolvedFilename: String = {
-    latestResolvedFilename match {
-      case reFilename(n) => s"${objectsAffiliationPubmedIds}_${n + 1}"
-      case _ => s"${objectsAffiliationPubmedIds}_000"
-    }
-  }
-
-  val currentFile = latestResolvedFilename
-  val nextFile = nextResolvedFilename
+  val currentFile = latestResolvedAffiliationPubmedIdsObjectsFilename
+  val nextFile = nextResolvedAffiliationPubmedIdsObjectsFilename
 
   Logger.info(s"$currentFile -> $nextFile")
 
