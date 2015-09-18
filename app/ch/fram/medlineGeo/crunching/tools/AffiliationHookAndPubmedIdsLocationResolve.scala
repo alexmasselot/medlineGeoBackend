@@ -1,5 +1,8 @@
 package ch.fram.medlineGeo.crunching.tools
 
+import java.io.{FileOutputStream, ObjectOutputStream}
+
+import akka.actor.Actor.Receive
 import akka.actor.{Actor, ActorSystem, Props}
 import akka.pattern.ask
 import akka.util.Timeout
@@ -26,6 +29,15 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   val sc = new SparkContext(sparkConf)
 
 
+  class SerializeLocalizedAffiliationPubmedIdsWriter(filename: String) extends Actor {
+    val oos = new ObjectOutputStream(new FileOutputStream(filename))
+
+    override def receive: Receive = {
+      case lapi: LocalizedAffiliationPubmedIds => oos.writeObject(lapi)
+      case "EOF" => oos.close()
+    }
+  }
+
   val currentFile = latestResolvedAffiliationPubmedIdsObjectsFilename
   val nextFile = nextResolvedAffiliationPubmedIdsObjectsFilename
 
@@ -37,52 +49,14 @@ object AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   val resolver: LocationResolver = GeonamesLocationResolver
   val resolverMaxCounter: Int = Int.MaxValue
 
-  class LocationResolverActor(resolver: LocationResolver, maxCount: Int) extends Actor {
-    var cpt = 0;
 
-    override def receive: Receive = {
-      case _ if cpt >= maxCount =>
-        sender ! Failure(LocationResolutionSkipException("reach limit"))
-      case affiliationHook: String =>
-        cpt = cpt + 1;
-        sender ! resolver.resolve(affiliationHook)
-    }
-  }
-
-  val system = ActorSystem("medline-geo-resolver")
-  val locationResolverActor = system.actorOf(Props(classOf[LocationResolverActor], resolver, resolverMaxCounter), "location-resolver")
-  implicit val timeout = Timeout(5 seconds)
-
+  val sout = new SerializeLocalizedAffiliationPubmedIdsWriter("/tmp/a.obj")
   val rddOut = rdd
     .sortBy(-_.citationCount)
-    .map({ lapi =>
-    lapi.location match {
-      //we have a location
-      case Some(loc) => lapi
-      //we have no location but the resolver has already bee tried
-      case None if (lapi.locResolverTried.contains(resolverName)) => lapi
-      //we have no location and the resolver has not been tried
-      case _ =>
-        val tryLoc = Await.result(locationResolverActor ? lapi.affiliationHook, 1 second).asInstanceOf[Try[Location]]
-        tryLoc match {
-          case Success(loc) => lapi.resolveSuccess(loc, resolverName)
-          case Failure(e: LocationResolutionSkipException) => lapi
-          case Failure(e) => lapi.resolveFailure(resolverName)
-        }
-    }
+    .foreach({
+    x => sout.append(x)
   })
 
-  Logger.info(s"saving $nextFile")
-  rddOut.saveAsObjectFile(nextFile)
-
-  val rdd2: RDD[LocalizedAffiliationPubmedIds] = sc.objectFile(nextFile)
-
-  val sqlContext = new SQLContext(sc)
-
-  import sqlContext.implicits._
-
-  Logger.info(s"reading back and piping to parquet $parquetAffiliationPubmedIds")
-  rdd2.toDF().write.mode(SaveMode.Overwrite).parquet(parquetAffiliationPubmedIds)
-
+  Logger.info("DONE")
 
 }
