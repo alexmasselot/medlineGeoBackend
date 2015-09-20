@@ -14,7 +14,8 @@ class GoogleMapLocationResolver(val apiKey: String, val limit: Int) extends Loca
   def conflictingMinDistance = 50 * 1000
 
   case class LocationResolutionCannotFindCountryException(message: String) extends Exception(message)
-  case class LocationResolutionTooDistantException(l1:Location, l2:Location) extends Exception(s"$l1 / $l2")
+
+  case class LocationResolutionTooDistantException(l1: Location, l2: Location) extends Exception(s"$l1 / $l2")
 
   lazy val context = new GeoApiContext().setApiKey(apiKey);
 
@@ -24,23 +25,30 @@ class GoogleMapLocationResolver(val apiKey: String, val limit: Int) extends Loca
       .map(_.shortName)
       .headOption
 
+  var cpt = 0;
+
   override def resolve(affiliationHook: String): Try[Location] = {
-    val locations = GeocodingApi.geocode(context, affiliationHook)
-      .await()
-      .toList
-      .map({
-      x => getCountryFromAddress(x.addressComponents) map { countryIso =>
-        Location(
-          GeoCoordinates(x.geometry.location.lat, x.geometry.location.lng),
-          countryIso
-        )
+    cpt = cpt + 1
+    if (cpt >= limit) {
+      Failure(LocationResolutionSkipException("google api limit reache"))
+    } else {
+      val locations = GeocodingApi.geocode(context, affiliationHook)
+        .await()
+        .toList
+        .map({
+        x => getCountryFromAddress(x.addressComponents) map { countryIso =>
+          Location(
+            GeoCoordinates(x.geometry.location.lat, x.geometry.location.lng),
+            countryIso
+          )
+        }
+      })
+      locations.filter(_.isDefined)
+        .map(_.get) match {
+        case Nil => Failure(LocationResolutionNotfoundException)
+        case x1 :: x2 :: Nil if x1.coordinates.distance(x1.coordinates) > conflictingMinDistance => Failure(LocationResolutionTooDistantException(x1, x2))
+        case x :: xs => Success(x)
       }
-    })
-    locations.filter(_.isDefined)
-      .map(_.get) match {
-      case Nil => Failure(LocationResolutionNotfoundException)
-      case x1 :: x2 :: Nil if x1.coordinates.distance(x1.coordinates) > conflictingMinDistance => Failure(LocationResolutionTooDistantException(x1, x2))
-      case x :: xs => Success(x)
     }
     ???
   }

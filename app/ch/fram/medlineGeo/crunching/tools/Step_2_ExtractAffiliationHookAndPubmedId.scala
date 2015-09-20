@@ -13,7 +13,7 @@ import scala.collection.mutable.ArrayBuffer
  *
  * @author Alexandre Masselot.
  */
-object ExtractAffiliationHookAndPubmedId extends PreProcessApp {
+object Step_2_ExtractAffiliationHookAndPubmedId extends PreProcessApp {
   val sc = new SparkContext(sparkConf)
   val sqlContext = new SQLContext(sc)
 
@@ -31,7 +31,7 @@ object ExtractAffiliationHookAndPubmedId extends PreProcessApp {
   dfe.map({
     case Row(id: Long, aff: String) => (aff, id)
   }).groupByKey().map({
-    case (aff: String, ids: Seq[Long]) => LocalizedAffiliationPubmedIds(aff, ids.toList)
+    case (aff: String, ids: Seq[Long]) => LocalizedAffiliationPubmedIds.create(aff, ids.toList)
   })
     .saveAsObjectFile(objectsAffiliationPubmedIdsInit)
 
