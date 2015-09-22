@@ -1,7 +1,7 @@
 package ch.fram.medlineGeo.crunching.localize
 
 import ch.fram.medlineGeo.models.{GeoCoordinates, Location}
-import com.google.maps.model.{AddressType, AddressComponent}
+import com.google.maps.model.{AddressComponentType, AddressType, AddressComponent}
 import com.google.maps.{GeocodingApi, GeoApiContext}
 import play.api.Logger
 
@@ -21,7 +21,10 @@ class GoogleMapLocationResolver(val apiKey: String, val limit: Int) extends Loca
 
   def getCountryFromAddress(components: Array[AddressComponent]): Option[String] =
     components.toList
-      .filter(c => c.types.toList.contains(AddressType.COUNTRY))
+      .filter({
+      c =>
+        c.types.toList.contains(AddressComponentType.COUNTRY)
+    })
       .map(_.shortName)
       .headOption
 
@@ -36,12 +39,14 @@ class GoogleMapLocationResolver(val apiKey: String, val limit: Int) extends Loca
         .await()
         .toList
         .map({
-        x => getCountryFromAddress(x.addressComponents) map { countryIso =>
-          Location(
-            GeoCoordinates(x.geometry.location.lat, x.geometry.location.lng),
-            countryIso
-          )
-        }
+        x =>
+          println(x)
+          getCountryFromAddress(x.addressComponents) map { countryIso =>
+            Location(
+              GeoCoordinates(x.geometry.location.lat, x.geometry.location.lng),
+              countryIso
+            )
+          }
       })
       locations.filter(_.isDefined)
         .map(_.get) match {
@@ -50,7 +55,6 @@ class GoogleMapLocationResolver(val apiKey: String, val limit: Int) extends Loca
         case x :: xs => Success(x)
       }
     }
-    ???
   }
 
 }
