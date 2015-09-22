@@ -52,8 +52,8 @@ object LocalizedAffiliationPubmedIds {
    * @param pubmedIds
    * @return
    */
-  def apply(affiliationHook: String,
-            pubmedIds: List[Long]): LocalizedAffiliationPubmedIds =
+  def create(affiliationHook: String,
+             pubmedIds: List[Long]): LocalizedAffiliationPubmedIds =
     LocalizedAffiliationPubmedIds(
       affiliationHook,
       pubmedIds,

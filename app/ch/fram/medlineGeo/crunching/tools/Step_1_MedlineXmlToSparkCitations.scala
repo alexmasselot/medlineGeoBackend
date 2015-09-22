@@ -11,7 +11,7 @@ import play.api.Logger
  *
  * @author Alexandre Masselot.
  */
-object MedlineXmlToSparkCitations extends PreProcessApp {
+object Step_1_MedlineXmlToSparkCitations extends PreProcessApp {
 
   import org.apache.spark.sql.SaveMode
 
