@@ -1,6 +1,7 @@
 package ch.fram.medlineGeo.crunching.localize
 
 import ch.fram.medlineGeo.models.{GeoCoordinates, Location}
+import com.google.maps.errors.ApiException
 import com.google.maps.model.{AddressComponentType, AddressType, AddressComponent}
 import com.google.maps.{GeocodingApi, GeoApiContext}
 import play.api.Logger
@@ -35,23 +36,27 @@ class GoogleMapLocationResolver(val apiKey: String, val limit: Int) extends Loca
     if (cpt >= limit) {
       Failure(LocationResolutionSkipException("google api limit reache"))
     } else {
-      val locations = GeocodingApi.geocode(context, affiliationHook)
-        .await()
-        .toList
-        .map({
-        x =>
-          getCountryFromAddress(x.addressComponents) map { countryIso =>
-            Location(
-              GeoCoordinates(x.geometry.location.lat, x.geometry.location.lng),
-              countryIso
-            )
-          }
-      })
-      locations.filter(_.isDefined)
-        .map(_.get) match {
-        case Nil => Failure(LocationResolutionNotfoundException)
-        case x1 :: x2 :: Nil if x1.coordinates.distance(x1.coordinates) > conflictingMinDistance => Failure(LocationResolutionTooDistantException(x1, x2))
-        case x :: xs => Success(x)
+      try {
+        val locations = GeocodingApi.geocode(context, affiliationHook)
+          .await()
+          .toList
+          .map({
+          x =>
+            getCountryFromAddress(x.addressComponents) map { countryIso =>
+              Location(
+                GeoCoordinates(x.geometry.location.lat, x.geometry.location.lng),
+                countryIso
+              )
+            }
+        })
+        locations.filter(_.isDefined)
+          .map(_.get) match {
+          case Nil => Failure(LocationResolutionNotfoundException)
+          case x1 :: x2 :: Nil if x1.coordinates.distance(x1.coordinates) > conflictingMinDistance => Failure(LocationResolutionTooDistantException(x1, x2))
+          case x :: xs => Success(x)
+        }
+      }catch{
+        case e:ApiException => Failure(LocationResolutionSkipException(s"google ApiException ${e.getMessage}"))
       }
     }
   }

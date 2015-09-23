@@ -55,7 +55,7 @@ object Step_4_AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   //val resolverName: String = "geonames"
   //val resolver: LocationResolver = GeonamesLocationResolver
   val resolverName: String = "google geocoding"
-  val resolver: LocationResolver = new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2400)
+  val resolver: LocationResolver = new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2500)
 
 
   val reader = new SerializeReader(currentFile)

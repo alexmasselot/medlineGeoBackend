@@ -19,7 +19,7 @@ object Step_2_ExtractAffiliationHookAndPubmedId extends PreProcessApp {
 
   import sqlContext.implicits._
 
-  val df = sqlContext.read.parquet(parquetCitations)
+  val df = sqlContext.read. parquet(parquetCitations)
 
   //we need case class (Product) for the flatmap
   case class StringCC(value: String)
