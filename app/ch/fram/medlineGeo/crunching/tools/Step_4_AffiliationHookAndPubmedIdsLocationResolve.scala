@@ -3,7 +3,7 @@ package ch.fram.medlineGeo.crunching.tools
 import java.io._
 
 import ch.fram.medlineGeo.crunching.LocalizedAffiliationPubmedIds
-import ch.fram.medlineGeo.crunching.localize.{GeonamesLocationResolver, LocationResolutionSkipException, LocationResolver}
+import ch.fram.medlineGeo.crunching.localize.{GoogleMapLocationResolver, GeonamesLocationResolver, LocationResolutionSkipException, LocationResolver}
 import ch.fram.medlineGeo.crunching.tools.JsonSerializer._
 import org.apache.commons.io.FileUtils
 import play.api.Logger
@@ -52,9 +52,10 @@ object Step_4_AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
 
   Logger.info(s"$currentFile -> $nextFile")
 
-  val resolverName: String = "geonames"
-  val resolver: LocationResolver = GeonamesLocationResolver
-  val resolverMaxCounter: Int = Int.MaxValue
+//  val resolverName: String = "geonames"
+//  val resolver: LocationResolver = GeonamesLocationResolver
+  val resolverName: String = "google geocoding"
+  val resolver: LocationResolver = new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2400)
 
 
   val reader = new SerializeReader(currentFile)

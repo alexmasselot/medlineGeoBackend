@@ -23,7 +23,7 @@ object Step_5_CitationsWithLocations extends PreProcessApp {
 
   val df = sqlContext.read.parquet(parquetAffiliationPubmedIdsLocated)
 
-  Logger.info("gruop by pubmed ids")
+  Logger.info("group by pubmed ids")
   val pubmedIdsLoc = df.
     filter("location is not null").
     select("pubmedIds", "location").

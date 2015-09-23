@@ -40,7 +40,6 @@ class GoogleMapLocationResolver(val apiKey: String, val limit: Int) extends Loca
         .toList
         .map({
         x =>
-          println(x)
           getCountryFromAddress(x.addressComponents) map { countryIso =>
             Location(
               GeoCoordinates(x.geometry.location.lat, x.geometry.location.lng),
