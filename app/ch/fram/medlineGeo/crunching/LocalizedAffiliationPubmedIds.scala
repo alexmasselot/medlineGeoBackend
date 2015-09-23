@@ -39,7 +39,7 @@ case class LocalizedAffiliationPubmedIds(affiliationHook: String,
       pubmedIds,
       citationCount,
       location,
-      Some(resolver),
+      None,
       (locResolverTried :+ resolver).distinct
     )
 }

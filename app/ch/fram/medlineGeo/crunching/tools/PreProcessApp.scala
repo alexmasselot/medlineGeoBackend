@@ -21,8 +21,9 @@ trait PreProcessApp extends App {
   val sparkDataDir = config.getConfig("spark").getString("dataDir")
 
   val parquetCitations = s"$sparkDataDir/citations.parquet"
-  val jsonAffiliationPubmedIdsLocated    = s"$sparkDataDir/affiliation-pubmedids-located.json"
   val objectsAffiliationPubmedIdsInit = s"$sparkDataDir/affiliation-pubmedids.objects"
+  val parquetAffiliationPubmedIdsInit = s"$sparkDataDir/affiliation-pubmedids.parquet"
+  val jsonAffiliationPubmedIdsLocated = s"$sparkDataDir/affiliation-pubmedids-located.json"
   val parquetAffiliationPubmedIdsLocated = s"$sparkDataDir/affiliation-pubmedids-located.parquet"
   val parquetCitationsLocated = s"$sparkDataDir/citations-located.parquet"
 

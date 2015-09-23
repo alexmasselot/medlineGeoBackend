@@ -52,8 +52,8 @@ object Step_4_AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
 
   Logger.info(s"$currentFile -> $nextFile")
 
-//  val resolverName: String = "geonames"
-//  val resolver: LocationResolver = GeonamesLocationResolver
+  //val resolverName: String = "geonames"
+  //val resolver: LocationResolver = GeonamesLocationResolver
   val resolverName: String = "google geocoding"
   val resolver: LocationResolver = new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2400)
 
