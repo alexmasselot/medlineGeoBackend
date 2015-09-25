@@ -1,0 +1,270 @@
+<PubmedArticle>
+    <MedlineCitation Owner="NLM" Status="MEDLINE">
+        <PMID Version="1">24101054</PMID>
+        <DateCreated>
+            <Year>2013</Year>
+            <Month>10</Month>
+            <Day>30</Day>
+        </DateCreated>
+        <DateCompleted>
+            <Year>2013</Year>
+            <Month>12</Month>
+            <Day>31</Day>
+        </DateCompleted>
+        <Article PubModel="Print-Electronic">
+            <Journal>
+                <ISSN IssnType="Electronic">1527-7755</ISSN>
+                <JournalIssue CitedMedium="Internet">
+                    <Volume>31</Volume>
+                    <Issue>31</Issue>
+                    <PubDate>
+                        <Year>2013</Year>
+                        <Month>Nov</Month>
+                        <Day>1</Day>
+                    </PubDate>
+                </JournalIssue>
+                <Title>Journal of clinical oncology : official journal of the American Society of Clinical Oncology</Title>
+                <ISOAbbreviation>J. Clin. Oncol.</ISOAbbreviation>
+            </Journal>
+            <ArticleTitle>ATLAS: randomized, double-blind, placebo-controlled, phase IIIB trial comparing bevacizumab therapy with or without erlotinib, after completion of chemotherapy, with bevacizumab for first-line treatment of advanced non-small-cell lung cancer.</ArticleTitle>
+            <Pagination>
+                <MedlinePgn>3926-34</MedlinePgn>
+            </Pagination>
+            <ELocationID EIdType="doi" ValidYN="Y">10.1200/JCO.2012.47.3983</ELocationID>
+            <Abstract>
+                <AbstractText Label="PURPOSE" NlmCategory="OBJECTIVE">This phase III trial was performed to assess the potential benefit of adding maintenance erlotinib to bevacizumab after a first-line chemotherapy regimen with bevacizumab for advanced non-small-cell lung cancer (NSCLC).</AbstractText>
+                <AbstractText Label="PATIENTS AND METHODS" NlmCategory="METHODS">One thousand one hundred forty-five patients with histologically or cytologically confirmed NSCLC (stage IIIB with malignant pleural effusion, stage IV, or recurrent) received four cycles of chemotherapy plus bevacizumab. Seven hundred forty-three patients without disease progression or significant toxicity were then randomly assigned (1:1) to bevacizumab (15 mg/kg, day 1, 21-day cycle) plus either placebo or erlotinib (150 mg per day). The primary end point was progression-free survival (PFS).</AbstractText>
+                <AbstractText Label="RESULTS" NlmCategory="RESULTS">Median PFS from time of random assignment was 3.7 months with bevacizumab/placebo and 4.8 months with bevacizumab/erlotinib (hazard ratio [HR], 0.71; 95% CI, 0.58 to 0.86; P &lt; .001). Median overall survival (OS) times from random assignment were 13.3 and 14.4 months with bevacizumab/placebo and bevacizumab/erlotinib, respectively (HR, 0.92; 95% CI, 0.70 to 1.21; P = .5341). During the postchemotherapy phase, there were more adverse events (AEs) overall, more grade 3 and 4 AEs (mainly rash and diarrhea), more serious AEs, and more AEs leading to erlotinib/placebo discontinuation in the bevacizumab/erlotinib arm versus the bevacizumab/placebo arm. The incidence of AEs leading to bevacizumab discontinuation was similar in both treatment arms.</AbstractText>
+                <AbstractText Label="CONCLUSION" NlmCategory="CONCLUSIONS">The addition of erlotinib to bevacizumab significantly improved PFS but not OS. Although generally well tolerated, the modest impact on survival and increased toxicity associated with the addition of erlotinib to bevacizumab maintenance mean that this two-drug maintenance regimen will not lead to a new postchemotherapy standard of care.</AbstractText>
+            </Abstract>
+            <AuthorList CompleteYN="Y">
+                <Author ValidYN="Y">
+                    <LastName>Johnson</LastName>
+                    <ForeName>Bruce E</ForeName>
+                    <Initials>BE</Initials>
+                    <AffiliationInfo>
+                        <Affiliation>Bruce E. Johnson, Dana-Farber Cancer Institute, Boston, MA; Fairooz Kabbinavar, University of California Los Angeles, Translational Oncology Research International, Los Angeles; Louis Fehrenbacher, Kaiser Permanente Northern California, Vallejo; Chin-Yu Lin and Chris Bowden, Genentech, South San Francisco; Jonathan Polikoff, Southern California Permanente Medical Group, San Diego, CA; John Hainsworth, Sarah Cannon Research Institute, Nashville, TN; Saifuddin Kasubhai, Northwest Medical Specialties, Tacoma, WA; Bruce Kressel, Sibley Memorial Hospital, Washington, DC; Thomas Marsland, Integrated Community Oncology Network, Orange Park; Mark Rubin, Florida Cancer Specialists, Fort Myers, FL; Taral Patel, The Mark H. Zangmeister Center, Columbus, OH; Leonard White, Arch Medical Services, The Center for Cancer Care and Research, Saint Louis, MO; Vincent Miller, Weill Cornell Medical College and Thoracic Oncology Service, Memorial Sloan-Kettering Cancer Center, New York, NY; and James Chih-Hsin Yang, National Taiwan University, Taipei, Taiwan.</Affiliation>
+                    </AffiliationInfo>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Kabbinavar</LastName>
+                    <ForeName>Fairooz</ForeName>
+                    <Initials>F</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Fehrenbacher</LastName>
+                    <ForeName>Louis</ForeName>
+                    <Initials>L</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Hainsworth</LastName>
+                    <ForeName>John</ForeName>
+                    <Initials>J</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Kasubhai</LastName>
+                    <ForeName>Saifuddin</ForeName>
+                    <Initials>S</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Kressel</LastName>
+                    <ForeName>Bruce</ForeName>
+                    <Initials>B</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Lin</LastName>
+                    <ForeName>Chin-Yu</ForeName>
+                    <Initials>CY</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Marsland</LastName>
+                    <ForeName>Thomas</ForeName>
+                    <Initials>T</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Patel</LastName>
+                    <ForeName>Taral</ForeName>
+                    <Initials>T</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Polikoff</LastName>
+                    <ForeName>Jonathan</ForeName>
+                    <Initials>J</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Rubin</LastName>
+                    <ForeName>Mark</ForeName>
+                    <Initials>M</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>White</LastName>
+                    <ForeName>Leonard</ForeName>
+                    <Initials>L</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Yang</LastName>
+                    <ForeName>James Chih-Hsin</ForeName>
+                    <Initials>JC</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Bowden</LastName>
+                    <ForeName>Chris</ForeName>
+                    <Initials>C</Initials>
+                </Author>
+                <Author ValidYN="Y">
+                    <LastName>Miller</LastName>
+                    <ForeName>Vincent</ForeName>
+                    <Initials>V</Initials>
+                </Author>
+            </AuthorList>
+            <Language>eng</Language>
+            <DataBankList CompleteYN="Y">
+                <DataBank>
+                    <DataBankName>ClinicalTrials.gov</DataBankName>
+                    <AccessionNumberList>
+                        <AccessionNumber>NCT00257608</AccessionNumber>
+                    </AccessionNumberList>
+                </DataBank>
+            </DataBankList>
+            <PublicationTypeList>
+                <PublicationType UI="D017428">Clinical Trial, Phase III</PublicationType>
+                <PublicationType UI="D016428">Journal Article</PublicationType>
+                <PublicationType UI="D016448">Multicenter Study</PublicationType>
+                <PublicationType UI="D016449">Randomized Controlled Trial</PublicationType>
+                <PublicationType UI="D013485">Research Support, Non-U.S. Gov't</PublicationType>
+            </PublicationTypeList>
+            <ArticleDate DateType="Electronic">
+                <Year>2013</Year>
+                <Month>10</Month>
+                <Day>07</Day>
+            </ArticleDate>
+        </Article>
+        <MedlineJournalInfo>
+            <Country>United States</Country>
+            <MedlineTA>J Clin Oncol</MedlineTA>
+            <NlmUniqueID>8309333</NlmUniqueID>
+            <ISSNLinking>0732-183X</ISSNLinking>
+        </MedlineJournalInfo>
+        <ChemicalList>
+            <Chemical>
+                <RegistryNumber>0</RegistryNumber>
+                <NameOfSubstance UI="D061067">Antibodies, Monoclonal, Humanized</NameOfSubstance>
+            </Chemical>
+            <Chemical>
+                <RegistryNumber>0</RegistryNumber>
+                <NameOfSubstance UI="D011799">Quinazolines</NameOfSubstance>
+            </Chemical>
+            <Chemical>
+                <RegistryNumber>2S9ZZM9Q9V</RegistryNumber>
+                <NameOfSubstance UI="C469428">bevacizumab</NameOfSubstance>
+            </Chemical>
+            <Chemical>
+                <RegistryNumber>J4T82NDH7E</RegistryNumber>
+                <NameOfSubstance UI="C400278">erlotinib</NameOfSubstance>
+            </Chemical>
+        </ChemicalList>
+        <CitationSubset>IM</CitationSubset>
+        <MeshHeadingList>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000328">Adult</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000368">Aged</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000369">Aged, 80 and over</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D061067">Antibodies, Monoclonal, Humanized</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000008">administration &amp; dosage</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000009">adverse effects</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D000971">Antineoplastic Combined Chemotherapy Protocols</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000627">therapeutic use</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D002289">Carcinoma, Non-Small-Cell Lung</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000188">drug therapy</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000401">mortality</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D018572">Disease-Free Survival</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D004311">Double-Blind Method</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D005260">Female</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D006801">Humans</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D053208">Kaplan-Meier Estimate</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008175">Lung Neoplasms</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000188">drug therapy</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000401">mortality</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D060046">Maintenance Chemotherapy</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000379">methods</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008297">Male</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D008875">Middle Aged</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D016016">Proportional Hazards Models</DescriptorName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D011799">Quinazolines</DescriptorName>
+                <QualifierName MajorTopicYN="Y" UI="Q000008">administration &amp; dosage</QualifierName>
+                <QualifierName MajorTopicYN="N" UI="Q000009">adverse effects</QualifierName>
+            </MeshHeading>
+            <MeshHeading>
+                <DescriptorName MajorTopicYN="N" UI="D016896">Treatment Outcome</DescriptorName>
+            </MeshHeading>
+        </MeshHeadingList>
+    </MedlineCitation>
+    <PubmedData>
+        <History>
+            <PubMedPubDate PubStatus="aheadofprint">
+                <Year>2013</Year>
+                <Month>10</Month>
+                <Day>7</Day>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="entrez">
+                <Year>2013</Year>
+                <Month>10</Month>
+                <Day>9</Day>
+                <Hour>6</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="pubmed">
+                <Year>2013</Year>
+                <Month>10</Month>
+                <Day>9</Day>
+                <Hour>6</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+            <PubMedPubDate PubStatus="medline">
+                <Year>2014</Year>
+                <Month>1</Month>
+                <Day>1</Day>
+                <Hour>6</Hour>
+                <Minute>0</Minute>
+            </PubMedPubDate>
+        </History>
+        <PublicationStatus>ppublish</PublicationStatus>
+        <ArticleIdList>
+            <ArticleId IdType="pii">JCO.2012.47.3983</ArticleId>
+            <ArticleId IdType="doi">10.1200/JCO.2012.47.3983</ArticleId>
+            <ArticleId IdType="pubmed">24101054</ArticleId>
+        </ArticleIdList>
+    </PubmedData>
+</PubmedArticle>

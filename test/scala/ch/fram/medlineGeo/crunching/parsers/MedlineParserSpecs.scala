@@ -80,4 +80,26 @@ class MedlineParserSpecs extends Specification {
       MedlineParser.parse(fname).size must beEqualTo(9)
     }
   }
+
+  "pubmed_tricky parsing" should {
+    val fname = "test/resources/pubmed_tricky.xml"
+    "count them right" in {
+      MedlineParser.parse(fname).size must beEqualTo(1)
+    }
+    "check one" should {
+      def cit(pmid: Long) = MedlineParser.parse(fname).find(_.pubmedId == pmid).get
+      "PubmedId" in {
+        cit(24101054L).pubmedId must beEqualTo(24101054L)
+      }
+      "multi element abstract" in {
+        cit(24101054L).abstractText must contain("""lung cancer (NSCLC). One thousand one hundred""")
+      }
+
+      "multiple affiliation on the first author" in {
+        val affiliations = cit(24101054L).authors.head.affiliations
+        affiliations must haveLength(14)
+        affiliations(2) must beEqualTo("Louis Fehrenbacher, Kaiser Permanente Northern California, Vallejo")
+      }
+    }
+  }
 }

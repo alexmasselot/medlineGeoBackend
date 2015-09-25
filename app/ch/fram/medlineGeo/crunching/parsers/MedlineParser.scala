@@ -60,7 +60,7 @@ object MedlineParser {
     Author(lastName = node \ "LastName" text,
       forename = node \ "ForeName" text,
       initials = node \ "Initials" text,
-      affiliations = (node \ "AffiliationInfo" \\ "Affiliation" map (x => x text) ).toList
+      affiliations = (node \ "AffiliationInfo" \\ "Affiliation" flatMap (x => (x text).split("; ").toList) ).toList
     )
 
   def parse(filename: String): Seq[Citation] = {
@@ -70,7 +70,7 @@ object MedlineParser {
     } yield {
       val pmid = node \ "PMID" text
       val nodeArticle = node \ "Article"
-      val abstractText = toSingleLine(nodeArticle \ "Abstract" \ "AbstractText" text)
+      val abstractText = toSingleLine((nodeArticle \ "Abstract" \\ "AbstractText" map(_.text)).mkString(" "))
       val title = toSingleLine(nodeArticle \ "ArticleTitle" text)
 
       val reMedlineDate = """.*\b(\d\d\d\d).*""".r
