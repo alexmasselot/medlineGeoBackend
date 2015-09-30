@@ -7,9 +7,9 @@ organization := "ch.alexmass"
 version      := "0.0.1"
 scalaVersion := Version.scala
 
-offline := true
+//offline := true
 
-skip in update := true
+//skip in update := true
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
