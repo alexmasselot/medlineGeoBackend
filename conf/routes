@@ -2,10 +2,8 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET        /                    demo.HelloController.index
-GET        /count               demo.HelloController.count
-GET        /list                demo.HelloController.list
-GET        /filter/:text        demo.HelloController.filter(text)
+GET        /citation-located              ch.fram.medlineGeo.view.CitationLocatedController.index
+GET        /citation-located/count        ch.fram.medlineGeo.view.CitationLocatedController.count
 
 # Home page
 

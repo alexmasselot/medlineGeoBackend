@@ -47,16 +47,18 @@ object Step_4_AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
     def close = oos.close()
   }
 
+
+  Logger.info(s"setting up resolver")
   val currentFile = latestResolvedAffiliationPubmedIdsObjectsFilename.get
   val nextFile = nextResolvedAffiliationPubmedIdsObjectsFilename
 
-  Logger.info(s"$currentFile -> $nextFile")
+  val (resolverName, resolver) =  if(currentFile.endsWith("000")){
+    ("geonames", GeonamesLocationResolver)
+  }else{
+    ("google geocoding", new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2400))
+  }
 
-  //val resolverName: String = "geonames"
-  //val resolver: LocationResolver = GeonamesLocationResolver
-  val resolverName: String = "google geocoding"
-  val resolver: LocationResolver = new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2500)
-
+  Logger.info(s"$resolverName: $currentFile -> $nextFile")
 
   val reader = new SerializeReader(currentFile)
   val writer = new SerializeWriter(nextFile)

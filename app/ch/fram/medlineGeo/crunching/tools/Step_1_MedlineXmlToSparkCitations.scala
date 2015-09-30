@@ -15,7 +15,7 @@ object Step_1_MedlineXmlToSparkCitations extends PreProcessApp {
 
   import org.apache.spark.sql.SaveMode
 
-  val medlineFileDir = "aa"//config.getString("thirdParties.medlineDir")
+  val medlineFileDir = config.getString("thirdParties.medlineDir")
 
   val medlineFiles = new File(medlineFileDir).listFiles.filter(_.getName endsWith ".gz").toList.map(_.getAbsolutePath)
 
