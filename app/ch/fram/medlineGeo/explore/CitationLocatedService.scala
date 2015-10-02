@@ -1,4 +1,4 @@
-package ch.fram.medlineGeo.view
+package ch.fram.medlineGeo.explore
 
 import com.typesafe.config.ConfigFactory
 import play.api.cache.CacheApi

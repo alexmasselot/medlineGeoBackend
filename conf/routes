@@ -2,8 +2,8 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET        /citation-located              ch.fram.medlineGeo.view.CitationLocatedController.index
-GET        /citation-located/count        ch.fram.medlineGeo.view.CitationLocatedController.count
+GET        /citation-located              ch.fram.medlineGeo.explore.CitationLocatedController.index
+GET        /citation-located/count        ch.fram.medlineGeo.explore.CitationLocatedController.count
 
 # Home page
 

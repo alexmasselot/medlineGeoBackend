@@ -1,4 +1,4 @@
-package ch.fram.medlineGeo.view
+package ch.fram.medlineGeo.explore
 
 import org.apache.spark.sql.SQLContext
 import org.apache.spark.{SparkContext, SparkConf}

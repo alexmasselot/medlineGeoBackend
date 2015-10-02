@@ -1,4 +1,4 @@
-package ch.fram.medlineGeo.view
+package ch.fram.medlineGeo.explore
 
 import play.api.mvc.{Action, Controller}
 
