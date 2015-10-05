@@ -15,7 +15,7 @@ object CitationLocatedController extends Controller{
   }
 
   def countByHexagon(radius:Double, year:Option[Int]) = Action {
-    CitationLocatedService.countByHexagon(radius, year.getOrElse(2014))
-    Ok("paf")
+    val ret =  CitationLocatedService.countByHexagon(radius, year.getOrElse(2014)).toJSON.collect.mkString("\n")
+    Ok(ret)
   }
 }
