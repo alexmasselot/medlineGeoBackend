@@ -63,7 +63,7 @@ object CitationLocatedService {
     }
 
     Logger.info(s"countByHexagon($radius, $fYear)")
-    val dfReduced = df.select("pubmedId", "locations.coordinates", "pubDate.year")bui
+    val dfReduced = df.select("pubmedId", "locations.coordinates", "pubDate.year")
 
     dfReduced.filter(s"year = $fYear")
       .withColumn("hexaCoordsDup", hexagonProjection(radius)(dfReduced("coordinates")))
