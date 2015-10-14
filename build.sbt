@@ -38,4 +38,4 @@ scalariformSettings
 
 ivyScala := ivyScala.value map { _.copy(overrideScalaVersion = true) }
 
-//routesGenerator := InjectedRoutesGenerator
+routesGenerator := InjectedRoutesGenerator

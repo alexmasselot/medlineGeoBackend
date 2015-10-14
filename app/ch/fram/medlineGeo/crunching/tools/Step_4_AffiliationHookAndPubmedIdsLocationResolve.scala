@@ -55,7 +55,7 @@ object Step_4_AffiliationHookAndPubmedIdsLocationResolve extends PreProcessApp {
   val (resolverName, resolver) =  if(currentFile.endsWith("000")){
     ("geonames", GeonamesLocationResolver)
   }else{
-    ("google geocoding", new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2400))
+    ("google geocoding", new GoogleMapLocationResolver(privateConfig.getString("google.api.key"), 2300))
   }
 
   Logger.info(s"$resolverName: $currentFile -> $nextFile")

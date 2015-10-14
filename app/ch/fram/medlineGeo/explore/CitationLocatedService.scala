@@ -3,7 +3,7 @@ package ch.fram.medlineGeo.explore
 import ch.fram.medlineGeo.explore.geo.HexagonTiling
 import ch.fram.medlineGeo.models.GeoCoordinates
 import com.typesafe.config.ConfigFactory
-import org.apache.spark.sql.{UserDefinedFunction, Row}
+import org.apache.spark.sql.{DataFrame, UserDefinedFunction, Row}
 import play.api.Logger
 import play.api.cache.CacheApi
 
@@ -22,7 +22,7 @@ object CitationLocatedService {
 
   lazy val df = SparkCommons.sqlContext.read.parquet(parquetCitationsLocated)
 
-  def count: Long = {
+  def size: Long = {
     df.count()
   }
 
@@ -47,6 +47,39 @@ object CitationLocatedService {
     udfHexagonProjectionRegistered(udfName)
   }
 
+
+  //we cache the hexagon aggregated dataframe (which is pretty small), as we would need to filter it by year subsequentyl)
+  var cachedCountByHexagon = scala.collection.mutable.Map[Double, DataFrame]()
+
+  def dfCountByHexagon(radius: Double): DataFrame = {
+    if (!cachedCountByHexagon.contains(radius)) {
+      def project(coords: (Double, Double)): (Double, Double) = {
+        val l = HexagonTiling.project(radius, GeoCoordinates(coords._1, coords._2))
+        (l.lat, l.lng)
+      }
+
+      Logger.info(s"countByHexagon($radius)")
+      val dfReduced = df.select("pubmedId", "locations.coordinates", "pubDate.year")
+
+      cachedCountByHexagon.put(radius,
+        dfReduced
+      .withColumn("hexaCoordsDup", hexagonProjection(radius)(dfReduced("coordinates")))
+      .explode[List[GeoCoordinates], GeoCoordinates]("hexaCoordsDup", "hexaCoordinates")({
+      case l: List[GeoCoordinates] =>
+        l.toList
+          .distinct
+    })
+          .drop("coordinates")
+          .drop("hexaCoordsDup")
+          .groupBy("year", "hexaCoordinates")
+          .agg($"year", $"hexaCoordinates", count($"pubmedId"))
+          .withColumnRenamed("COUNT(pubmedId)", "countPubmedId")
+          .cache
+      )
+    }
+    cachedCountByHexagon(radius)
+  }
+
   /**
    *
    * project publication hexagon (with the given radius) and count them
@@ -57,25 +90,8 @@ object CitationLocatedService {
    * @return
    */
   def countByHexagon(radius: Double, fYear: Int) = {
-    def project(coords: (Double, Double)): (Double, Double) = {
-      val l = HexagonTiling.project(radius, GeoCoordinates(coords._1, coords._2))
-      (l.lat, l.lng)
-    }
 
-    Logger.info(s"countByHexagon($radius, $fYear)")
-    val dfReduced = df.select("pubmedId", "locations.coordinates", "pubDate.year")
+    dfCountByHexagon(radius).filter(s"year = $fYear")
 
-    dfReduced.filter(s"year = $fYear")
-      .withColumn("hexaCoordsDup", hexagonProjection(radius)(dfReduced("coordinates")))
-      .explode[List[GeoCoordinates], GeoCoordinates]("hexaCoordsDup", "hexaCoordinates")({
-      case l: List[GeoCoordinates] =>
-        l.toList
-          .distinct
-    })
-      .drop("coordinates")
-      .drop("hexaCoordsDup")
-      .groupBy("year", "hexaCoordinates")
-      .count
-      .withColumnRenamed("COUNT(pubmedId)", "countPubmedId")
   }
 }
