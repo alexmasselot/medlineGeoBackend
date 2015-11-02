@@ -12,10 +12,7 @@ import scala.collection.mutable.ArrayBuffer
 /**
  * Created by alex on 28/09/15.
  */
-object CitationLocatedService {
-  val config = ConfigFactory.defaultApplication()
-  val sparkDataDir = config.getConfig("spark").getString("dataDir")
-  val parquetCitationsLocated = s"$sparkDataDir/citations-located.parquet"
+object CitationLocatedService extends SparkService{
 
   import SparkCommons.sqlContext.implicits._
   import org.apache.spark.sql.functions._
