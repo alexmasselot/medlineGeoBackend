@@ -5,7 +5,8 @@
 GET        /citation-located                               ch.fram.medlineGeo.explore.CitationLocatedController.index
 GET        /citation-located/count                         ch.fram.medlineGeo.explore.CitationLocatedController.count
 GET        /citation-located/countByHexagon/:radius        ch.fram.medlineGeo.explore.CitationLocatedController.countByHexagon(radius:Double, year:Option[Int])
-GET        /country/count/:year        ch.fram.medlineGeo.explore.CountryCountController.countByCountry(year:Int)
+GET        /country/count/:year                            ch.fram.medlineGeo.explore.CountryCountController.countByYear(year:Int)
+GET        /country-pair/count/:year                       ch.fram.medlineGeo.explore.CountryPairCountController.countByYear(year:Int)
 
 # Home page
 

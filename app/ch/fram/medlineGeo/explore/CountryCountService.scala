@@ -42,7 +42,7 @@ object CountryCountService extends SparkService {
    * @param fYear
    * @return
    */
-  def countByCountry(fYear: Int) = {
+  def countByYear(fYear: Int) = {
     dfCachedCountPerCountry.filter(s"year = $fYear")
   }
 }

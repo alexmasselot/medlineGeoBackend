@@ -8,7 +8,7 @@ import play.api.mvc.{Action, Controller}
 /**
  * Created by alex on 28/09/15.
  */
-class CountryCountController @Inject()(cached: Cached) extends Controller {
+class CountryPairCountController @Inject()(cached: Cached) extends Controller {
   def index = Action {
     Ok("CountryCountController")
   }
@@ -21,7 +21,7 @@ class CountryCountController @Inject()(cached: Cached) extends Controller {
 
   def countByYear(year: Int) = cached(req => "rest-" + req.uri) {
     Action {
-      val ret = CountryCountService.countByYear(year).toJSON.collect.mkString(",\n")
+      val ret = CountryPairCountService.countByYear(year).toJSON.collect.mkString(",\n")
       Ok("[\n"+ret+"\n]").as("application/json")
     }
   }
