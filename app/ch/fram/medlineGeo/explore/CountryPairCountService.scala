@@ -14,7 +14,7 @@ object CountryPairCountService extends SparkService {
   import org.apache.spark.sql._
 
   lazy val df = SparkCommons.sqlContext.read.parquet(parquetCitationsLocated)
-  val maxCountries = 50
+  val maxCountries = 30
 
   def size: Long = {
     df.count()
@@ -105,7 +105,6 @@ object CountryPairCountService extends SparkService {
    * @return
    */
   def countByYear(fYear: Int) = {
-    println(s"countByYear ($fYear")
     dfCountCountryPairs.filter(s"year = $fYear")
   }
 }
