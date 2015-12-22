@@ -7,7 +7,7 @@ import org.apache.spark.sql.{DataFrame, UserDefinedFunction, Row}
 import play.api.Logger
 import play.api.cache.CacheApi
 
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable
 
 /**
  * Created by alex on 28/09/15.
@@ -34,8 +34,8 @@ object CitationLocatedService extends SparkService{
     val udfName = s"hexagonProjection_$radius".replaceAll(".", "_")
 
     if (!udfHexagonProjectionRegistered.contains(udfName)) {
-      val f: (ArrayBuffer[Any]) => List[GeoCoordinates] = { (coords: ArrayBuffer[Any]) =>
-        coords.toList.map({
+      val f: (mutable.WrappedArray[Any]) => List[GeoCoordinates] = { (coords: mutable.WrappedArray[Any]) =>
+        coords.array.toList.map({
           case Row(lat: Double, lng: Double) => HexagonTiling.project(radius, GeoCoordinates(lat, lng))
         })
       }
@@ -61,16 +61,16 @@ object CitationLocatedService extends SparkService{
       cachedCountByHexagon.put(radius,
         dfReduced
       .withColumn("hexaCoordsDup", hexagonProjection(radius)(dfReduced("coordinates")))
-      .explode[List[GeoCoordinates], GeoCoordinates]("hexaCoordsDup", "hexaCoordinates")({
-      case l: List[GeoCoordinates] =>
-        l.toList
+      .explode[mutable.WrappedArray[GeoCoordinates], GeoCoordinates]("hexaCoordsDup", "hexaCoordinates")({
+      case l: mutable.WrappedArray[GeoCoordinates] =>
+        l.array.toList
           .distinct
     })
           .drop("coordinates")
           .drop("hexaCoordsDup")
           .groupBy("year", "hexaCoordinates")
           .agg($"year", $"hexaCoordinates", count($"pubmedId"))
-          .withColumnRenamed("COUNT(pubmedId)", "countPubmedId")
+          .withColumnRenamed("count(pubmedId)", "countPubmedId")
           .cache
       )
     }

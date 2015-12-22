@@ -6,6 +6,7 @@ import com.typesafe.config.ConfigFactory
 import org.apache.spark.sql.{DataFrame, Row, UserDefinedFunction}
 import play.api.Logger
 
+import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 /**
@@ -25,13 +26,13 @@ object CountryCountService extends SparkService {
 
   lazy val dfCachedCountPerCountry: DataFrame = {
     df.select("pubmedId", "locations.countryIso", "pubDate.year")
-      .explode[ArrayBuffer[String], String]("countryIso", "countryIso2")({
-      case l: ArrayBuffer[String] => l.toList.distinct
+      .explode[mutable.WrappedArray[String], String]("countryIso", "countryIso2")({
+      case l: mutable.WrappedArray[String] => l.array.toList.distinct
     }).drop("countryIso")
       .withColumnRenamed("countryIso2", "countryIso")
       .groupBy("year", "countryIso")
       .agg(count("pubmedId"))
-      .withColumnRenamed("COUNT(pubmedId)", "countPubmedId")
+      .withColumnRenamed("count(pubmedId)", "countPubmedId")
       .cache
   }
 

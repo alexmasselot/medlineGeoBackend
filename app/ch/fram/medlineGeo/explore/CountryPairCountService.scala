@@ -2,6 +2,7 @@ package ch.fram.medlineGeo.explore
 
 import org.apache.spark.sql.DataFrame
 
+import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 /**
@@ -23,14 +24,14 @@ object CountryPairCountService extends SparkService {
   //the maxCountries countries with the topmost overall publications
   def getMostProductiveCountries: Set[String] =
     df.select("pubmedId", "locations.countryIso").
-      explode[ArrayBuffer[String], String]("countryIso", "countryIso2")({
-      case l: ArrayBuffer[String] => l.toList.distinct
+      explode[mutable.WrappedArray[String], String]("countryIso", "countryIso2")({
+      case l: mutable.WrappedArray[String] => l.array.toList.distinct
     }).
       drop("countryIso").
       withColumnRenamed("countryIso2", "countryIso").
       groupBy(s"countryIso").
       agg(count("pubmedId")).
-      withColumnRenamed("COUNT(pubmedId)", "n").
+      withColumnRenamed("count(pubmedId)", "n").
       orderBy($"n".desc).
       select("countryIso").
       limit(maxCountries).
@@ -64,7 +65,7 @@ object CountryPairCountService extends SparkService {
       drop("countryIso").
       groupBy(s"countryPair", "year").
       agg(count("pubmedId")).
-      withColumnRenamed("COUNT(pubmedId)", "nbPubmedIds").
+      withColumnRenamed("count(pubmedId)", "nbPubmedIds").
       withColumn("countryFrom", $"countryPair._1").
       withColumn("countryTo", $"countryPair._2").
       drop("countryPair").
@@ -73,14 +74,14 @@ object CountryPairCountService extends SparkService {
 
     //add columns with the total count for th to/from country for the given year
     val dfCountry = df.select("pubmedId", "locations.countryIso", "pubDate.year").
-      explode[ArrayBuffer[String], String]("countryIso", "countryIso2")({
-      case l: ArrayBuffer[String] => l.toList.filter(c => countrySet.contains(c))
+      explode[mutable.WrappedArray[String], String]("countryIso", "countryIso2")({
+      case l: mutable.WrappedArray[String] => l.array.toList.filter(c => countrySet.contains(c))
     }).
       drop("countryIso").
       withColumnRenamed("countryIso2", "countryIso").
       groupBy("year", "countryIso").
       agg(count("pubmedId")).
-      withColumnRenamed("COUNT(pubmedId)", "nbPubmedIdsPerCountryYear")
+      withColumnRenamed("count(pubmedId)", "nbPubmedIdsPerCountryYear")
       .withColumnRenamed("year", "year1")
       .cache
 

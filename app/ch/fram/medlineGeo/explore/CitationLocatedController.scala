@@ -2,6 +2,7 @@ package ch.fram.medlineGeo.explore
 
 import javax.inject.Inject
 
+import play.api.Play
 import play.api.cache.Cached
 import play.api.mvc.{Action, Controller}
 
