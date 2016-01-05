@@ -3,7 +3,6 @@ package ch.fram.medlineGeo.explore
 import org.apache.spark.sql.DataFrame
 
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
 
 /**
  * Created by alex on 28/09/15.
@@ -43,10 +42,10 @@ object CountryPairCountService extends SparkService {
   lazy val dfCountCountryPairs = {
     val countrySet = getMostProductiveCountries
 
-    val fMultValues: (ArrayBuffer[String] => Boolean) = (xs: ArrayBuffer[String]) => xs.toList.distinct.size >= 2
+    val fMultValues: (mutable.WrappedArray[String] => Boolean) = (xs: mutable.WrappedArray[String]) => xs.array.toList.distinct.size >= 2
     val udfMultiValues = udf(fMultValues)
-    val fPairs: (ArrayBuffer[String] => List[(String, String)]) = { (xs: ArrayBuffer[String]) =>
-      val uniques = xs.toList.distinct.filter(x => countrySet.contains(x)).sorted
+    val fPairs: (mutable.WrappedArray[String] => List[(String, String)]) = { (xs: mutable.WrappedArray[String]) =>
+      val uniques = xs.array.toList.distinct.filter(x => countrySet.contains(x)).sorted
       if (uniques.size > maxCountries) {
         List()
       } else {
@@ -58,8 +57,8 @@ object CountryPairCountService extends SparkService {
     val dfToFrom = df.select("pubmedId", "pubDate.year", "locations.countryIso").
       filter(udfMultiValues($"countryIso")).
       withColumn("countryPairs", udfPairs($"countryIso")).
-      explode[List[(String, String)], (String, String)]("countryPairs", "countryPair")({
-      case l: List[(String, String)] => l.toList
+      explode[mutable.WrappedArray[(String, String)], (String, String)]("countryPairs", "countryPair")({
+        case l: mutable.WrappedArray[(String, String)] => l.array.toList
     }).
       drop("countryPairs").
       drop("countryIso").
