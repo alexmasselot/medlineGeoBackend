@@ -2,11 +2,9 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET        /citation-located                               ch.fram.medlineGeo.explore.CitationLocatedController.index
-GET        /citation-located/count                         ch.fram.medlineGeo.explore.CitationLocatedController.count
-GET        /citation-located/countByHexagon/:radius        ch.fram.medlineGeo.explore.CitationLocatedController.countByHexagon(radius:Double, year:Option[Int])
-GET        /country/count/:year                            ch.fram.medlineGeo.explore.CountryCountController.countByYear(year:Int)
-GET        /country-pair/count/:year                       ch.fram.medlineGeo.explore.CountryPairCountController.countByYear(year:Int)
+GET        /api/citation-located/countByHexagon/:radius        ch.fram.medlineGeo.explore.CitationLocatedController.countByHexagon(radius:Double, year:Option[Int])
+GET        /api/country/count/:year                            ch.fram.medlineGeo.explore.CountryCountController.countByYear(year:Int)
+GET        /api/country-pair/count/:year                       ch.fram.medlineGeo.explore.CountryPairCountController.countByYear(year:Int)
 
 # Home page
 

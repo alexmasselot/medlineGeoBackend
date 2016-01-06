@@ -2,9 +2,9 @@ import play.sbt.PlayImport._
 import play.sbt.routes.RoutesKeys._
 
 
-name         := "spark-play-activator"
+name         := "medline-geo-backend"
 organization := "ch.alexmass"
-version      := "0.0.1"
+version      := "0.1"
 scalaVersion := Version.scala
 
 //offline := true
@@ -31,6 +31,11 @@ dependencyOverrides ++= Set(
 )
 
 javaOptions in Test += "-Dconfig.file=conf/application.test.conf"
+
+mappings in Universal := {
+  val origMappings = (mappings in Universal).value
+  origMappings.filterNot { case (_, file) => file.endsWith("private.conf") || file.endsWith("test.conf") }
+}
 
 releaseSettings
 

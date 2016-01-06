@@ -19,9 +19,6 @@ object CitationLocatedService extends SparkService{
 
   lazy val df = SparkCommons.sqlContext.read.parquet(parquetCitationsLocated)
 
-  def size: Long = {
-    df.count()
-  }
 
   val udfHexagonProjectionRegistered = scala.collection.mutable.Map[String, UserDefinedFunction]()
 

@@ -19,10 +19,6 @@ object CountryCountService extends SparkService {
 
   lazy val df = SparkCommons.sqlContext.read.parquet(parquetCitationsLocated)
 
-  def size: Long = {
-    df.count()
-  }
-
 
   lazy val dfCachedCountPerCountry: DataFrame = {
     df.select("pubmedId", "locations.countryIso", "pubDate.year")
