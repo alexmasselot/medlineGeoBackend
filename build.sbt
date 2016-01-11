@@ -37,6 +37,10 @@ mappings in Universal := {
   origMappings.filterNot { case (_, file) => file.endsWith("private.conf") || file.endsWith("test.conf") }
 }
 
+mappings in Universal ++=
+  (baseDirectory.value / "data/disk-cache" ** "*" get) map
+    (x => x -> ("data/disk-cache/" + x.getPath))
+
 releaseSettings
 
 scalariformSettings

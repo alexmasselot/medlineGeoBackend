@@ -12,10 +12,10 @@ import play.api.mvc.{Action, Controller}
   */
 class CitationLocatedController @Inject()(cached: DiskCache) extends Controller {
 
-  def countByHexagon(radius: Double, year: Option[Int]) =
+  def countByHexagon(radius: Double, year: Int) =
     Action { req =>
-      val ret = cached.getOrElse(req.uri)(CitationLocatedService.countByHexagon(radius, year.getOrElse(2014)).toJSON.collect.mkString(",\n"))
-      Ok("[\n" + ret + "\n]").as("application/json")
+      val ret = cached.getOrElse(req.uri)("[\n"+ CitationLocatedService.countByHexagon(radius, year).toJSON.collect.mkString(",\n")+ "\n]")
+      Ok( ret).as("application/json")
     }
 
 }

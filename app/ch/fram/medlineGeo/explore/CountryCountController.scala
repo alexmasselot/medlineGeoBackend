@@ -15,8 +15,8 @@ class CountryCountController @Inject()(cached: DiskCache) extends Controller {
 
   def countByYear(year: Int) = //cached(req => "rest-" + req.uri) {
     Action { req =>
-      val ret = cached.getOrElse(req.uri)(CountryCountService.countByYear(year).toJSON.collect.mkString(",\n"))
-      Ok("[\n" + ret + "\n]").as("application/json")
+      val ret = cached.getOrElse(req.uri)("[\n" + CountryCountService.countByYear(year).toJSON.collect.mkString(",\n")+ "\n]")
+      Ok(ret ).as("application/json")
     }
 
   //  }
